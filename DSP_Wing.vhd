@@ -61,6 +61,7 @@ architecture BEHAVIORAL of DSP_Wing is
 	signal register2_out: std_logic_vector(31 downto 0);	
 	
 	--Put your unique register names here
+	-- 0 clock,1 startbit,1 capture mode, 000 channel select, others => don't care.
 	signal adc_shift_out : std_logic_vector( 19 downto 0 ):=  "01100011000000000000";
 	signal adc_shift_in : std_logic_vector( 19 downto 0 ):= (others => '0');
 	signal adc_state : std_logic_vector( 19 downto 0 ):= (0 => '1', others => '0');
@@ -108,6 +109,8 @@ begin
 		 
 		
 	end process;
+	
+
 	--Do not touch
 	Inst_Wishbone_to_Registers: Wishbone_to_Registers PORT MAP(
 		wishbone_in => wishbone_in,
