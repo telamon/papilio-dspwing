@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="Simulate_DSP_Wing">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2015-3-23T20:54:45</timestamp>
+    <graph>
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-8" type="symbol" />
+    </graph>
+</symbol>

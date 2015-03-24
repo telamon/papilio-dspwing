@@ -1,0 +1,9 @@
+V3 3
+FL D:/MyProjects/Papilio/DesignLabSketchbook/DSP_Wing/Chip_Designer/../../../DesignLab-1.0.4/libraries/ZPUino_Wishbone_Peripherals/Wishbone_to_Registers.vhd 2015/03/06.11:48:36 P.58f
+EN DesignLab/Wishbone_to_Registers 1427145335 \
+      FL D:/MyProjects/Papilio/DesignLabSketchbook/DSP_Wing/Chip_Designer/../../../DesignLab-1.0.4/libraries/ZPUino_Wishbone_Peripherals/Wishbone_to_Registers.vhd \
+      PB ieee/std_logic_1164 1364358218 PB ieee/STD_LOGIC_UNSIGNED 1364358221 \
+      PB ieee/NUMERIC_STD 1364358223
+AR DesignLab/Wishbone_to_Registers/rtl 1427145336 \
+      FL D:/MyProjects/Papilio/DesignLabSketchbook/DSP_Wing/Chip_Designer/../../../DesignLab-1.0.4/libraries/ZPUino_Wishbone_Peripherals/Wishbone_to_Registers.vhd \
+      EN DesignLab/Wishbone_to_Registers 1427145335

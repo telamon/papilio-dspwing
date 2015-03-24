@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/MyProjects/Papilio/DesignLabSketchbook/DSP_Wing/Chip_Designer/Simulate_DSP_Wing_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="simulate_dsp_wing" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="group24" type="group">
+      <obj_property name="label">Wishbone Bus</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider61" type="divider">
+      <obj_property name="label">Your Design Registers</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="group25" type="group">
+      <obj_property name="label">Your Design Registers</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider63" type="divider">
+      <obj_property name="label">Your Design External Pins</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="group26" type="group">
+      <obj_property name="label">Your External Pins</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/clk_96mhz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_96mhz</obj_property>
+      <obj_property name="ObjectShortName">clk_96mhz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/spi_miso" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_miso</obj_property>
+      <obj_property name="ObjectShortName">spi_miso</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/spi_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_clk</obj_property>
+      <obj_property name="ObjectShortName">spi_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/spi_mosi" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_mosi</obj_property>
+      <obj_property name="ObjectShortName">spi_mosi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/spi_cs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_cs</obj_property>
+      <obj_property name="ObjectShortName">spi_cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/audio_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">audio_data[17:0]</obj_property>
+      <obj_property name="ObjectShortName">audio_data[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simulate_dsp_wing/result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">result[17:0]</obj_property>
+      <obj_property name="ObjectShortName">result[17:0]</obj_property>
+   </wvobject>
+</wave_config>

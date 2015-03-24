@@ -1,0 +1,837 @@
+Release 14.5 - xst P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: BitCoin_Miner.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "BitCoin_Miner.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "BitCoin_Miner"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : BitCoin_Miner
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"../../../DesignLab-1.0.4/libraries/AVR_Wishbone_Bridge" "../../../DesignLab-1.0.4/libraries/Benchy" "../../../DesignLab-1.0.4/libraries/BitCoin_Miner" "../../../DesignLab-1.0.4/libraries/Building_Blocks" "../../../DesignLab-1.0.4/libraries/Clocks" "../../../DesignLab-1.0.4/libraries/Gameduino" "../../../DesignLab-1.0.4/libraries/HQVGA" "../../../DesignLab-1.0.4/libraries/Papilio_Hardware" "../../../DesignLab-1.0.4/libraries/VGA_ZPUino" "../../../DesignLab-1.0.4/libraries/VGA_ZXSpectrum" "../../../DesignLab-1.0.4/libraries/ZPUino_2" "../../../DesignLab-1.0.4/libraries/ZPUino_Wishbone_Peripherals"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" into library work
+Parsing verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/main_pll.v" included at line 22.
+Parsing module <main_pll>.
+Parsing verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha-256-functions.v" included at line 25.
+Parsing module <e0>.
+Parsing module <e1>.
+Parsing module <ch>.
+Parsing module <maj>.
+Parsing module <s0>.
+Parsing module <s1>.
+Parsing verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha256_transform.v" included at line 26.
+Parsing module <sha256_transform>.
+Parsing module <sha256_digester>.
+Parsing verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/uart_receiver.v" included at line 29.
+Parsing module <uart_receiver>.
+Parsing module <uart_filter>.
+Parsing verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/uart_transmitter.v" included at line 30.
+Parsing module <uart_transmitter>.
+Parsing verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/serial.v" included at line 31.
+Parsing module <serial_receive>.
+Parsing module <serial_transmit>.
+Parsing verilog file "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/raw7seg.v" included at line 33.
+Parsing module <raw7seg>.
+Parsing module <BitCoin_Miner>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" Line 79: Port CE_IN is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" Line 114: Port rx_done is not connected to this instance
+
+Elaborating module <BitCoin_Miner>.
+
+Elaborating module <main_pll>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <BUFG>.
+
+Elaborating module <DCM_SP(CLK_FEEDBACK="1X",CLKDV_DIVIDE=2.0,CLKFX_DIVIDE=1,CLKFX_MULTIPLY=4,CLKIN_DIVIDE_BY_2="FALSE",CLKIN_PERIOD=20.0,CLKOUT_PHASE_SHIFT="NONE",DESKEW_ADJUST="SYSTEM_SYNCHRONOUS",DFS_FREQUENCY_MODE="LOW",DLL_FREQUENCY_MODE="LOW",DUTY_CYCLE_CORRECTION="TRUE",FACTORY_JF=16'b1100000010000000,PHASE_SHIFT=0,STARTUP_WAIT="FALSE")>.
+
+Elaborating module <OFDDRCPE>.
+
+Elaborating module <sha256_transform(LOOP=6'b100000)>.
+
+Elaborating module <sha256_digester>.
+
+Elaborating module <e0>.
+
+Elaborating module <e1>.
+
+Elaborating module <ch>.
+
+Elaborating module <maj>.
+
+Elaborating module <s0>.
+
+Elaborating module <s1>.
+
+Elaborating module <serial_receive(comm_clk_frequency=50000000)>.
+
+Elaborating module <uart_receiver(comm_clk_frequency=50000000)>.
+
+Elaborating module <uart_filter>.
+WARNING:HDLCompiler:413 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/serial.v" Line 59: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/serial.v" Line 64: Result of 25-bit expression is truncated to fit in 24-bit target.
+
+Elaborating module <serial_transmit(comm_clk_frequency=50000000)>.
+WARNING:HDLCompiler:413 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/serial.v" Line 112: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/serial.v" Line 122: Result of 5-bit expression is truncated to fit in 4-bit target.
+
+Elaborating module <uart_transmitter(comm_clk_frequency=50000000)>.
+WARNING:HDLCompiler:413 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" Line 138: Result of 32-bit expression is truncated to fit in 6-bit target.
+
+Elaborating module <raw7seg>.
+WARNING:HDLCompiler:413 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/raw7seg.v" Line 52: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:552 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" Line 79: Input port CE_IN is not connected on this instance
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <BitCoin_Miner>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v".
+        comm_clk_frequency = 50000000
+        LOOP_LOG2 = 5
+INFO:Xst:3210 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" line 79: Output port <CLKIN_IBUFG_OUT> of the instance <pll_blk> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" line 79: Output port <CLK180_OUT> of the instance <pll_blk> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" line 79: Output port <DDR_CLK0_OUT> of the instance <pll_blk> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" line 79: Output port <LOCKED_OUT> of the instance <pll_blk> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\BitCoin_Miner.v" line 114: Output port <rx_done> of the instance <serrx> is unconnected or connected to loadless signal.
+    Register <data_dummy_dummy> equivalent to <data> has been removed
+    Register <data_dummy> equivalent to <data> has been removed
+    Found 96-bit register for signal <data_buf<95:0>>.
+    Found 6-bit register for signal <cnt>.
+    Found 1-bit register for signal <feedback>.
+    Found 1-bit register for signal <feedback_d1>.
+    Found 256-bit register for signal <state>.
+    Found 32-bit register for signal <nonce>.
+    Found 1-bit register for signal <is_golden_ticket>.
+    Found 32-bit register for signal <golden_nonce>.
+    Found 1-bit register for signal <serial_send>.
+    Found 256-bit register for signal <midstate_buf>.
+    Found 1-bit register for signal <data>.
+    Found 128-bit register for signal <data_dummy_dummy_dummy>.
+    Found 32-bit subtractor for signal <nonce[31]_GND_1_o_sub_10_OUT> created at line 179.
+    Found 7-bit adder for signal <n0059[6:0]> created at line 138.
+    Found 32-bit adder for signal <nonce[31]_GND_1_o_add_4_OUT> created at line 145.
+    WARNING:Xst:2404 -  FFs/Latches <data<511:490>> (without init value) have a constant value of 0 in block <BitCoin_Miner>.
+    WARNING:Xst:2404 -  FFs/Latches <data<489:489>> (without init value) have a constant value of 0 in block <BitCoin_Miner>.
+    WARNING:Xst:2404 -  FFs/Latches <data<489:163>> (without init value) have a constant value of 0 in block <BitCoin_Miner>.
+    WARNING:Xst:2404 -  FFs/Latches <data<162:132>> (without init value) have a constant value of 0 in block <BitCoin_Miner>.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred 811 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <BitCoin_Miner> synthesized.
+
+Synthesizing Unit <main_pll>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/main_pll.v".
+    Summary:
+	no macro.
+Unit <main_pll> synthesized.
+
+Synthesizing Unit <sha256_transform>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha256_transform.v".
+        LOOP = 6'b100000
+    Found 256-bit register for signal <tx_hash>.
+    Found 32-bit adder for signal <rx_state[31]_HASHERS[1].state[31]_add_9_OUT> created at line 103.
+    Found 32-bit adder for signal <rx_state[63]_HASHERS[1].state[63]_add_10_OUT> created at line 104.
+    Found 32-bit adder for signal <rx_state[95]_HASHERS[1].state[95]_add_11_OUT> created at line 105.
+    Found 32-bit adder for signal <rx_state[127]_HASHERS[1].state[127]_add_12_OUT> created at line 106.
+    Found 32-bit adder for signal <rx_state[159]_HASHERS[1].state[159]_add_13_OUT> created at line 107.
+    Found 32-bit adder for signal <rx_state[191]_HASHERS[1].state[191]_add_14_OUT> created at line 108.
+    Found 32-bit adder for signal <rx_state[223]_HASHERS[1].state[223]_add_15_OUT> created at line 109.
+    Found 32-bit adder for signal <rx_state[255]_HASHERS[1].state[255]_add_16_OUT> created at line 110.
+    Found 6-bit subtractor for signal <GND_7_o_GND_7_o_sub_1_OUT<5:0>> created at line 80.
+    Found 6-bit subtractor for signal <GND_7_o_GND_7_o_sub_5_OUT<5:0>> created at line 89.
+    Found 4064-bit shifter logical right for signal <n0028> created at line 80
+    Found 4064-bit shifter logical right for signal <n0032> created at line 89
+    Summary:
+	inferred  10 Adder/Subtractor(s).
+	inferred 256 D-type flip-flop(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <sha256_transform> synthesized.
+
+Synthesizing Unit <sha256_digester>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha256_transform.v".
+    Found 256-bit register for signal <tx_state>.
+    Found 512-bit register for signal <tx_w>.
+    Found 32-bit adder for signal <n0038> created at line 139.
+    Found 32-bit adder for signal <n0041> created at line 139.
+    Found 32-bit adder for signal <n0044> created at line 139.
+    Found 32-bit adder for signal <t1> created at line 139.
+    Found 32-bit adder for signal <t2> created at line 140.
+    Found 32-bit adder for signal <n0053> created at line 141.
+    Found 32-bit adder for signal <n0056> created at line 141.
+    Found 32-bit adder for signal <new_w> created at line 141.
+    Found 32-bit adder for signal <rx_state[127]_t1[31]_add_9_OUT> created at line 152.
+    Found 32-bit adder for signal <t1[31]_t2[31]_add_10_OUT> created at line 156.
+    Summary:
+	inferred  10 Adder/Subtractor(s).
+	inferred 768 D-type flip-flop(s).
+Unit <sha256_digester> synthesized.
+
+Synthesizing Unit <e0>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha-256-functions.v".
+    Summary:
+Unit <e0> synthesized.
+
+Synthesizing Unit <e1>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha-256-functions.v".
+    Summary:
+Unit <e1> synthesized.
+
+Synthesizing Unit <ch>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha-256-functions.v".
+    Summary:
+Unit <ch> synthesized.
+
+Synthesizing Unit <maj>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha-256-functions.v".
+    Summary:
+	no macro.
+Unit <maj> synthesized.
+
+Synthesizing Unit <s0>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha-256-functions.v".
+    Summary:
+Unit <s0> synthesized.
+
+Synthesizing Unit <s1>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/sha-256-functions.v".
+    Summary:
+Unit <s1> synthesized.
+
+Synthesizing Unit <serial_receive>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/serial.v".
+        comm_clk_frequency = 50000000
+        SERIAL_TIMEOUT = 24'b100000000000000000000000
+    Found 7-bit register for signal <demux_state>.
+    Found 512-bit register for signal <input_buffer>.
+    Found 24-bit register for signal <timer>.
+    Found 512-bit register for signal <input_copy>.
+    Found 7-bit adder for signal <demux_state[6]_GND_15_o_add_3_OUT> created at line 59.
+    Found 24-bit adder for signal <timer[23]_GND_15_o_add_4_OUT> created at line 64.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred 1055 D-type flip-flop(s).
+Unit <serial_receive> synthesized.
+
+Synthesizing Unit <uart_receiver>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/uart_receiver.v".
+        comm_clk_frequency = 50000000
+        baud_rate = 115200
+    Found 1-bit register for signal <tx_new_byte>.
+    Found 16-bit register for signal <delay_cnt>.
+    Found 1-bit register for signal <idle>.
+    Found 9-bit register for signal <incoming>.
+    Found 8-bit register for signal <tx_byte>.
+    Found 1-bit register for signal <old_rx>.
+    Found 16-bit adder for signal <delay_cnt[15]_GND_16_o_add_1_OUT> created at line 67.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  36 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <uart_receiver> synthesized.
+
+Synthesizing Unit <uart_filter>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/uart_receiver.v".
+    Found 1-bit register for signal <rx>.
+    Found 1-bit register for signal <sample1>.
+    Found 1-bit register for signal <sample2>.
+    Found 1-bit register for signal <tx_rx>.
+    Found 1-bit register for signal <meta>.
+    Summary:
+	inferred   5 D-type flip-flop(s).
+Unit <uart_filter> synthesized.
+
+Synthesizing Unit <serial_transmit>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/serial.v".
+        comm_clk_frequency = 50000000
+    Found 32-bit register for signal <word_copy>.
+    Found 1-bit register for signal <serial_start>.
+    Found 8-bit register for signal <out_byte>.
+    Found 4-bit register for signal <mux_state>.
+    Found 4-bit adder for signal <mux_state[3]_GND_18_o_add_3_OUT> created at line 122.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  45 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <serial_transmit> synthesized.
+
+Synthesizing Unit <uart_transmitter>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/uart_transmitter.v".
+        comm_clk_frequency = 50000000
+        baud_rate = 115200
+    Found 10-bit register for signal <state>.
+    Found 10-bit register for signal <outgoing>.
+    Found 16-bit register for signal <delay_cnt>.
+    Found 16-bit adder for signal <delay_cnt[15]_GND_19_o_add_1_OUT> created at line 55.
+    Found 16-bit comparator greater for signal <n0004> created at line 57
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  36 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <uart_transmitter> synthesized.
+
+Synthesizing Unit <raw7seg>.
+    Related source file is "D:\MyProjects\Papilio\DesignLab-1.0.4\libraries\BitCoin_Miner\/raw7seg.v".
+        SEG_UNITS = 4
+        INVERT_ANODES = 1
+        INVERT_SEGMENTS = 1
+    Found 4-bit register for signal <an_index>.
+    Found 8-bit register for signal <word_shifted<7:0>>.
+    Found 16-bit register for signal <cnt>.
+    Found 16-bit adder for signal <cnt[15]_GND_20_o_add_1_OUT> created at line 26.
+    Found 4-bit adder for signal <an_index[3]_GND_20_o_add_7_OUT> created at line 52.
+    Found 32-bit shifter logical right for signal <n0021> created at line 55
+    Found 4-bit shifter logical left for signal <GND_20_o_an_index[3]_shift_left_13_OUT> created at line 61
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  28 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <raw7seg> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 70
+ 16-bit adder                                          : 3
+ 24-bit adder                                          : 1
+ 32-bit adder                                          : 57
+ 32-bit subtractor                                     : 1
+ 4-bit adder                                           : 2
+ 6-bit subtractor                                      : 4
+ 7-bit adder                                           : 2
+# Registers                                            : 47
+ 1-bit register                                        : 14
+ 10-bit register                                       : 2
+ 128-bit register                                      : 1
+ 16-bit register                                       : 3
+ 24-bit register                                       : 1
+ 256-bit register                                      : 8
+ 32-bit register                                       : 3
+ 4-bit register                                        : 2
+ 512-bit register                                      : 6
+ 6-bit register                                        : 1
+ 7-bit register                                        : 1
+ 8-bit register                                        : 3
+ 9-bit register                                        : 1
+ 96-bit register                                       : 1
+# Comparators                                          : 1
+ 16-bit comparator greater                             : 1
+# Multiplexers                                         : 7
+ 1-bit 2-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 3
+ 4-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 6
+ 32-bit shifter logical right                          : 1
+ 4-bit shifter logical left                            : 1
+ 4064-bit shifter logical right                        : 4
+# Xors                                                 : 48
+ 10-bit xor2                                           : 4
+ 22-bit xor2                                           : 8
+ 29-bit xor2                                           : 8
+ 3-bit xor2                                            : 4
+ 32-bit xor2                                           : 24
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1426 - The value init of the FF/Latch data hinder the constant cleaning in the block BitCoin_Miner.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <cnt_5> has a constant value of 0 in block <BitCoin_Miner>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <input_copy_96> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_97> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_98> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_99> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_100> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_101> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_102> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_103> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_104> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_105> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_106> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_107> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_108> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_109> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_110> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_111> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_112> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_113> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_114> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_115> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_116> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_117> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_118> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_119> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_120> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_121> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_122> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_123> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_124> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_125> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_126> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_127> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_128> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_129> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_130> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_131> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_132> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_133> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_134> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_135> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_136> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_137> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_138> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_139> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_140> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_141> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_142> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_143> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_144> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_145> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_146> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_147> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_148> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_149> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_150> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_151> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_152> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_153> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_154> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_155> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_156> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_157> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_158> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_159> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_160> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_161> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_162> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_163> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_164> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_165> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_166> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_167> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_168> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_169> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_170> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_171> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_172> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_173> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_174> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_175> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_176> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_177> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_178> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_179> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_180> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_181> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_182> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_183> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_184> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_185> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_186> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_187> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_188> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_189> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_190> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_191> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_192> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_193> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_194> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_195> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_196> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_197> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_198> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_199> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_200> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_201> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_202> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_203> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_204> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_205> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_206> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_207> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_208> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_209> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_210> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_211> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_212> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_213> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_214> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_215> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_216> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_217> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_218> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_219> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_220> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_221> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_222> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_223> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_224> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_225> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_226> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_227> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_228> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_229> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_230> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_231> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_232> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_233> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_234> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_235> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_236> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_237> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_238> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_239> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_240> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_241> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_242> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_243> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_244> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_245> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_246> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_247> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_248> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_249> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_250> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_251> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_252> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_253> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_254> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <input_copy_255> of sequential type is unconnected in block <serrx>.
+WARNING:Xst:2677 - Node <tx_hash_0> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_1> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_2> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_3> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_4> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_5> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_6> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_7> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_8> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_9> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_10> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_11> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_12> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_13> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_14> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_15> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_16> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_17> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_18> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_19> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_20> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_21> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_22> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_23> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_24> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_25> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_26> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_27> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_28> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_29> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_30> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_31> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_32> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_33> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_34> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_35> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_36> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_37> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_38> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_39> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_40> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_41> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_42> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_43> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_44> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_45> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_46> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_47> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_48> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_49> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_50> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_51> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_52> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_53> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_54> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_55> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_56> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_57> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_58> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_59> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_60> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_61> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_62> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_63> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_64> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_65> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_66> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_67> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_68> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_69> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_70> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_71> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_72> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_73> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_74> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_75> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_76> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_77> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_78> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_79> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_80> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_81> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_82> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_83> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_84> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_85> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_86> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_87> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_88> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_89> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_90> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_91> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_92> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_93> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_94> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_95> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_96> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_97> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_98> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_99> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_100> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_101> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_102> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_103> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_104> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_105> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_106> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_107> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_108> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_109> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_110> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_111> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_112> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_113> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_114> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_115> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_116> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_117> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_118> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_119> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_120> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_121> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_122> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_123> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_124> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_125> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_126> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_127> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_128> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_129> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_130> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_131> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_132> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_133> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_134> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_135> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_136> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_137> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_138> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_139> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_140> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_141> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_142> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_143> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_144> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_145> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_146> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_147> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_148> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_149> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_150> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_151> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_152> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_153> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_154> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_155> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_156> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_157> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_158> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_159> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_160> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_161> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_162> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_163> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_164> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_165> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_166> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_167> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_168> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_169> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_170> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_171> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_172> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_173> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_174> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_175> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_176> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_177> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_178> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_179> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_180> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_181> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_182> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_183> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_184> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_185> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_186> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_187> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_188> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_189> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_190> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_191> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_192> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_193> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_194> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_195> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_196> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_197> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_198> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_199> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_200> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_201> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_202> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_203> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_204> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_205> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_206> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_207> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_208> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_209> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_210> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_211> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_212> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_213> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_214> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_215> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_216> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_217> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_218> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_219> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_220> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_221> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_222> of sequential type is unconnected in block <uut2>.
+WARNING:Xst:2677 - Node <tx_hash_223> of sequential type is unconnected in block <uut2>.

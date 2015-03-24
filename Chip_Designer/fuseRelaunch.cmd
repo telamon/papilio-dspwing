@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "D:/MyProjects/Papilio/DesignLabSketchbook/DSP_Wing/Chip_Designer/TESTCRAP_isim_beh.exe" -prj "D:/MyProjects/Papilio/DesignLabSketchbook/DSP_Wing/Chip_Designer/TESTCRAP_beh.prj" "work.TESTCRAP" 
