@@ -1,3 +1,0 @@
-vhdl DesignLab "../../../DesignLab-1.0.4/libraries/ZPUino_Wishbone_Peripherals/Wishbone_to_Registers.vhd"
-vhdl isim_temp "../DSP_Wing.vhd"
-vhdl isim_temp "Simulate_DSP_Wing.vhd"
