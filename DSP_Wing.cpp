@@ -23,6 +23,16 @@ DSP_Wing::DSP_Wing(){
 void DSP_Wing::setup(unsigned int wishboneSlot){
 	this->wishboneSlot = wishboneSlot;
 }
+/*
+void DSP_WING::begin(int channel =0){
+  
+}
+void DSP_WING::end(){
+  
+}*/
+// T
+// set amplification
+// set mode 96Khz/32Khz
 
 unsigned long DSP_Wing::getSample18(){
 	return REGISTER(IO_SLOT(wishboneSlot),1);

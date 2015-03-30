@@ -60,6 +60,7 @@ architecture BEHAVIORAL of DSP_Wing is
 	signal register2_in: std_logic_vector(31 downto 0);
 	signal register2_out: std_logic_vector(31 downto 0);	
 	
+		
 	--Put your unique register names here
 	-- 0 clock,1 startbit,1 capture mode, 000 channel select, others => don't care.
 	signal adc_shift_out : std_logic_vector( 19 downto 0 ):=  "01100011000000000000";
@@ -78,6 +79,7 @@ begin
 	spi_mosi <= adc_shift_out(19);
 	spi_clk <= sampling_clk;
 		
+	
 	
 	-- divide main clock from 96Mhz to 1.92Mhz = (20clocks per sample) = 96k samples/s = 96Khz audio
 	process(clk_96Mhz)
@@ -103,11 +105,21 @@ begin
 			adc_state <= adc_state(0) & adc_state(19 downto 1);
 			if(adc_state(0) = '1') then
 				audio_data <= adc_shift_in(11 downto 0) & "000000" ;
-				register1_in(17 downto 0) <= adc_shift_in(11 downto 0) & "000000" ;
+				-- register1_in(17 downto 0) <= adc_shift_in(11 downto 0) & "000000" ;
 			end if;			
 		end if;
 		 
 		
+	end process;
+	
+	-- Handle register controls
+	process(register0_out(0))
+	begin
+		if rising_edge(register0_out(0)) then
+			-- if register0 (4 downto 1) to int == 1 do channel select.
+			adc_shift_out(5 downto 1) <= register0_out(5 downto 1);
+			
+		end if;
 	end process;
 	
 
