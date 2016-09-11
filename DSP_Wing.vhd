@@ -125,14 +125,14 @@ begin
 	end process;
 	
 	-- Handle register controls
-	process(register0_out(0))
-	begin
-		if rising_edge(register0_out(0)) then
+	--process(register0_out(0))
+	--begin
+	--	if rising_edge(register0_out(0)) then
 			-- if register0 (4 downto 1) to int == 1 , update the ADC channel select, we have 8 of them in total.
-			adc_shift_out(5 downto 1) <= register0_out(5 downto 1);
+	--		adc_shift_out(5 downto 1) <= register0_out(5 downto 1);
 			
-		end if;
-	end process;
+	--	end if;
+	--end process;
 	
 
 	--Do not touch
