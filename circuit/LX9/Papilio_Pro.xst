@@ -15,7 +15,7 @@ run
 -rtlview Yes
 -glob_opt AllClockNets
 -read_cores YES
--sd {"../../../Benchy" "../../../Clocks" "../../../HQVGA" "../../../Papilio_Hardware" "../.." "../../../ZPUino_1" "../../../ZPUino_2" "../../../ZPUino_Wishbone_Peripherals"  }
+-sd {"../../../../../DesignLab-1.0.7/libraries/Building_Blocks" "../../../../../DesignLab-1.0.7/libraries/HQVGA" "../../../../../DesignLab-1.0.7/libraries/Robot_Control_Library" "../../../../../DesignLab-1.0.7/libraries/VGA_ZPUino" "../../../../../DesignLab-1.0.7/libraries/VGA_ZXSpectrum" "../../../../../DesignLab-1.0.7/libraries/Gameduino" "../../../../../DesignLab-1.0.7/libraries/ZPUino_2" "../../../../../DesignLab-1.0.7/libraries/RGB_Matrix" "../../../../../DesignLab-1.0.7/libraries/BitCoin_Miner" "../../../../../DesignLab-1.0.7/libraries/clocks" "../../../../../DesignLab-1.0.7/libraries/ZPUino_Wishbone_Peripherals" "../../../../../DesignLab-1.0.7/libraries/AVR_Wishbone_Bridge" "../../../../../DesignLab-1.0.7/libraries/Benchy" "../../../../../DesignLab-1.0.7/libraries/Papilio_Hardware" "../../../../../DesignLab-1.0.7/libraries/Clocks" "../.."  }
 -write_timing_constraints NO
 -cross_clock_analysis NO
 -hierarchy_separator /

@@ -1,81 +1,23 @@
 --------------------------------------------------------------------------------
--- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --------------------------------------------------------------------------------
 --   ____  ____ 
 --  /   /\/   / 
 -- /___/  \  /    Vendor: Xilinx 
--- \   \   \/     Version : 14.1
+-- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 12/02/2014 11:56:50
+-- /___/   /\     Timestamp : 09/11/2016 13:38:10
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/Benchy -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/Clocks -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/HQVGA -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/Papilio_Hardware -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/Template_DesignLab_Library -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/ZPUino_1 -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/ZPUino_2 -sympath D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/ZPUino_Wishbone_Peripherals -intstyle ise -family spartan6 -flat -suppress -vhdl D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/Template_DesignLab_Library/circuit/LX9/Papilio_Pro.vhf -w D:/Dropbox/GadgetFactory_Engineering/DesignLab/build/windows/work/libraries/Template_DesignLab_Library/circuit/Papilio_Pro.sch
+--Command: sch2hdl -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/Building_Blocks -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/HQVGA -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/Robot_Control_Library -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/VGA_ZPUino -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/VGA_ZXSpectrum -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/Gameduino -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/ZPUino_2 -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/RGB_Matrix -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/BitCoin_Miner -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/clocks -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/ZPUino_Wishbone_Peripherals -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/AVR_Wishbone_Bridge -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/Benchy -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/Papilio_Hardware -sympath /home/telamon/diy/papilio/DesignLab-1.0.7/libraries/Clocks -sympath /home/telamon/diy/papilio/Sketchbook/libraries/DSP_Wing -sympath /home/telamon/diy/papilio/Sketchbook/libraries/DSP_Wing/circuit/LX9 -intstyle ise -family spartan6 -flat -suppress -vhdl /home/telamon/diy/papilio/Sketchbook/libraries/DSP_Wing/circuit/LX9/Papilio_Pro.vhf -w /home/telamon/diy/papilio/Sketchbook/libraries/DSP_Wing/circuit/Papilio_Pro.sch
 --Design Name: Papilio_Pro
 --Device: spartan6
 --Purpose:
 --    This vhdl netlist is translated from an ECS schematic. It can be 
 --    synthesized and simulated, but it should not be modified. 
 --
------ CELL IBUF4_HXILINX_Papilio_Pro -----
-  
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-
-entity IBUF4_HXILINX_Papilio_Pro is
-  
-port(
-    O0  : out std_logic;
-    O1  : out std_logic;
-    O2  : out std_logic;
-    O3  : out std_logic;
-
-    I0  : in std_logic;
-    I1  : in std_logic;
-    I2  : in std_logic;
-    I3  : in std_logic
-  );
-end IBUF4_HXILINX_Papilio_Pro;
-
-architecture IBUF4_HXILINX_Papilio_Pro_V of IBUF4_HXILINX_Papilio_Pro is
-begin
-
-  O0 <= I0;
-  O1 <= I1;
-  O2 <= I2;
-  O3 <= I3;
-
-end IBUF4_HXILINX_Papilio_Pro_V;
------ CELL OBUF4_HXILINX_Papilio_Pro -----
-  
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-
-entity OBUF4_HXILINX_Papilio_Pro is
-  
-port(
-    O0  : out std_logic;
-    O1  : out std_logic;
-    O2  : out std_logic;
-    O3  : out std_logic;
-
-    I0  : in std_logic;
-    I1  : in std_logic;
-    I2  : in std_logic;
-    I3  : in std_logic
-  );
-end OBUF4_HXILINX_Papilio_Pro;
-
-architecture OBUF4_HXILINX_Papilio_Pro_V of OBUF4_HXILINX_Papilio_Pro is
-begin
-
-  O0 <= I0;
-  O1 <= I1;
-  O2 <= I2;
-  O3 <= I3;
-
-end OBUF4_HXILINX_Papilio_Pro_V;
 
 library ieee;
 use ieee.std_logic_1164.ALL;
@@ -85,15 +27,11 @@ use UNISIM.Vcomponents.ALL;
 
 entity Papilio_Pro is
    port ( ext_pins_in    : in    std_logic_vector (100 downto 0); 
-          WING_AL1       : in    std_logic; 
-          WING_AL3       : in    std_logic; 
-          WING_AL5       : in    std_logic; 
-          WING_AL7       : in    std_logic; 
+          WING_CL2       : in    std_logic; 
           ext_pins_out   : out   std_logic_vector (100 downto 0); 
-          WING_AL0       : out   std_logic; 
-          WING_AL2       : out   std_logic; 
-          WING_AL4       : out   std_logic; 
-          WING_AL6       : out   std_logic; 
+          WING_CL0       : out   std_logic; 
+          WING_CL1       : out   std_logic; 
+          WING_CL3       : out   std_logic; 
           ext_pins_inout : inout std_logic_vector (100 downto 0); 
           WING_AH0       : inout std_logic; 
           WING_AH1       : inout std_logic; 
@@ -103,6 +41,14 @@ entity Papilio_Pro is
           WING_AH5       : inout std_logic; 
           WING_AH6       : inout std_logic; 
           WING_AH7       : inout std_logic; 
+          WING_AL0       : inout std_logic; 
+          WING_AL1       : inout std_logic; 
+          WING_AL2       : inout std_logic; 
+          WING_AL3       : inout std_logic; 
+          WING_AL4       : inout std_logic; 
+          WING_AL5       : inout std_logic; 
+          WING_AL6       : inout std_logic; 
+          WING_AL7       : inout std_logic; 
           WING_BH0       : inout std_logic; 
           WING_BH1       : inout std_logic; 
           WING_BH2       : inout std_logic; 
@@ -127,10 +73,6 @@ entity Papilio_Pro is
           WING_CH5       : inout std_logic; 
           WING_CH6       : inout std_logic; 
           WING_CH7       : inout std_logic; 
-          WING_CL0       : inout std_logic; 
-          WING_CL1       : inout std_logic; 
-          WING_CL2       : inout std_logic; 
-          WING_CL3       : inout std_logic; 
           WING_CL4       : inout std_logic; 
           WING_CL5       : inout std_logic; 
           WING_CL6       : inout std_logic; 
@@ -138,11 +80,6 @@ entity Papilio_Pro is
 end Papilio_Pro;
 
 architecture BEHAVIORAL of Papilio_Pro is
-   attribute HU_SET     : string ;
-   signal BUTTONS                                   : std_logic_vector (3 
-         downto 0);
-   signal leds                                      : std_logic_vector (3 
-         downto 0);
    signal XLXN_325                                  : std_logic_vector (7 
          downto 0);
    signal XLXN_326                                  : std_logic_vector (7 
@@ -171,10 +108,18 @@ architecture BEHAVIORAL of Papilio_Pro is
          downto 0);
    signal XLXN_409                                  : std_logic_vector (200 
          downto 0);
-   signal XLXN_479                                  : std_logic_vector (100 
+   signal XLXN_529                                  : std_logic;
+   signal XLXN_530                                  : std_logic;
+   signal XLXN_531                                  : std_logic;
+   signal XLXN_535                                  : std_logic_vector (100 
          downto 0);
-   signal XLXN_480                                  : std_logic_vector (100 
+   signal XLXN_536                                  : std_logic_vector (100 
          downto 0);
+   signal XLXN_538                                  : std_logic;
+   signal XLXN_539                                  : std_logic_vector (17 
+         downto 0);
+   signal XLXN_543                                  : std_logic;
+   signal XLXN_544                                  : std_logic;
    signal XLXI_38_Flex_Pin_out_0_openSignal         : std_logic;
    signal XLXI_38_Flex_Pin_out_1_openSignal         : std_logic;
    signal XLXI_38_Flex_Pin_out_2_openSignal         : std_logic;
@@ -183,7 +128,7 @@ architecture BEHAVIORAL of Papilio_Pro is
    signal XLXI_38_Flex_Pin_out_5_openSignal         : std_logic;
    signal XLXI_51_wishbone_slot_video_in_openSignal : std_logic_vector (100 
          downto 0);
-   signal XLXI_51_wishbone_slot_6_out_openSignal    : std_logic_vector (100 
+   signal XLXI_51_wishbone_slot_5_out_openSignal    : std_logic_vector (100 
          downto 0);
    signal XLXI_51_wishbone_slot_8_out_openSignal    : std_logic_vector (100 
          downto 0);
@@ -281,35 +226,6 @@ architecture BEHAVIORAL of Papilio_Pro is
              Flex_Pin_in_5    : out   std_logic);
    end component;
    
-   component Wishbone_Symbol_Example
-      port ( buttons      : in    std_logic_vector (3 downto 0); 
-             leds         : out   std_logic_vector (3 downto 0); 
-             wishbone_in  : in    std_logic_vector (100 downto 0); 
-             wishbone_out : out   std_logic_vector (100 downto 0));
-   end component;
-   
-   component OBUF4_HXILINX_Papilio_Pro
-      port ( I0 : in    std_logic; 
-             I1 : in    std_logic; 
-             I2 : in    std_logic; 
-             I3 : in    std_logic; 
-             O0 : out   std_logic; 
-             O1 : out   std_logic; 
-             O2 : out   std_logic; 
-             O3 : out   std_logic);
-   end component;
-   
-   component IBUF4_HXILINX_Papilio_Pro
-      port ( I0 : in    std_logic; 
-             I1 : in    std_logic; 
-             I2 : in    std_logic; 
-             I3 : in    std_logic; 
-             O0 : out   std_logic; 
-             O1 : out   std_logic; 
-             O2 : out   std_logic; 
-             O3 : out   std_logic);
-   end component;
-   
    component ZPUino_Papilio_Pro_V2
       port ( gpio_bus_out            : out   std_logic_vector (200 downto 0); 
              gpio_bus_in             : in    std_logic_vector (200 downto 0); 
@@ -338,12 +254,39 @@ architecture BEHAVIORAL of Papilio_Pro is
              wishbone_slot_14_in     : out   std_logic_vector (100 downto 0); 
              wishbone_slot_14_out    : in    std_logic_vector (100 downto 0); 
              wishbone_slot_video_in  : in    std_logic_vector (100 downto 0); 
-             wishbone_slot_video_out : out   std_logic_vector (100 downto 0); 
-             vgaclkout               : out   std_logic);
+             wishbone_slot_video_out : out   std_logic_vector (100 downto 0));
    end component;
    
-   attribute HU_SET of XLXI_49 : label is "XLXI_49_0";
-   attribute HU_SET of XLXI_50 : label is "XLXI_50_1";
+   component AUDIO_zpuino_sa_sigmadeltaDAC
+      port ( data_in   : in    std_logic_vector (17 downto 0); 
+             audio_out : out   std_logic; 
+             clk_96Mhz : in    std_logic);
+   end component;
+   
+   component DSP_Wing
+      port ( clk_96Mhz    : in    std_logic; 
+             spi_miso     : in    std_logic; 
+             spi_clk      : out   std_logic; 
+             spi_mosi     : out   std_logic; 
+             spi_cs       : out   std_logic; 
+             audio_data   : out   std_logic_vector (17 downto 0); 
+             wishbone_out : out   std_logic_vector (100 downto 0); 
+             wishbone_in  : in    std_logic_vector (100 downto 0));
+   end component;
+   
+   component MISC_zpuino_sa_splitter2
+      port ( in1  : in    std_logic; 
+             out1 : out   std_logic; 
+             out2 : out   std_logic);
+   end component;
+   
+   component Wing_Audio
+      port ( audio_left  : in    std_logic; 
+             audio_right : in    std_logic; 
+             wt_miso     : inout std_logic_vector (7 downto 0); 
+             wt_mosi     : inout std_logic_vector (7 downto 0));
+   end component;
+   
 begin
    XLXI_22 : Wing_GPIO
       port map (wt_miso(7 downto 0)=>XLXN_325(7 downto 0),
@@ -364,10 +307,6 @@ begin
    XLXI_26 : Wing_GPIO
       port map (wt_miso(7 downto 0)=>XLXN_333(7 downto 0),
                 wt_mosi(7 downto 0)=>XLXN_334(7 downto 0));
-   
-   XLXI_27 : Wing_GPIO
-      port map (wt_miso(7 downto 0)=>XLXN_335(7 downto 0),
-                wt_mosi(7 downto 0)=>XLXN_336(7 downto 0));
    
    XLXI_38 : Papilio_Default_Wing_Pinout
       port map (Flex_Pin_out_0=>XLXI_38_Flex_Pin_out_0_openSignal,
@@ -404,14 +343,14 @@ begin
                 WING_AH5=>WING_AH5,
                 WING_AH6=>WING_AH6,
                 WING_AH7=>WING_AH7,
-                WING_AL0=>open,
-                WING_AL1=>open,
-                WING_AL2=>open,
-                WING_AL3=>open,
-                WING_AL4=>open,
-                WING_AL5=>open,
-                WING_AL6=>open,
-                WING_AL7=>open,
+                WING_AL0=>WING_AL0,
+                WING_AL1=>WING_AL1,
+                WING_AL2=>WING_AL2,
+                WING_AL3=>WING_AL3,
+                WING_AL4=>WING_AL4,
+                WING_AL5=>WING_AL5,
+                WING_AL6=>WING_AL6,
+                WING_AL7=>WING_AL7,
                 WING_BH0=>WING_BH0,
                 WING_BH1=>WING_BH1,
                 WING_BH2=>WING_BH2,
@@ -436,49 +375,23 @@ begin
                 WING_CH5=>WING_CH5,
                 WING_CH6=>WING_CH6,
                 WING_CH7=>WING_CH7,
-                WING_CL0=>WING_CL0,
-                WING_CL1=>WING_CL1,
-                WING_CL2=>WING_CL2,
-                WING_CL3=>WING_CL3,
+                WING_CL0=>open,
+                WING_CL1=>open,
+                WING_CL2=>open,
+                WING_CL3=>open,
                 WING_CL4=>WING_CL4,
                 WING_CL5=>WING_CL5,
                 WING_CL6=>WING_CL6,
                 WING_CL7=>WING_CL7);
-   
-   XLXI_41 : Wishbone_Symbol_Example
-      port map (buttons(3 downto 0)=>BUTTONS(3 downto 0),
-                wishbone_in(100 downto 0)=>XLXN_479(100 downto 0),
-                leds(3 downto 0)=>leds(3 downto 0),
-                wishbone_out(100 downto 0)=>XLXN_480(100 downto 0));
-   
-   XLXI_49 : OBUF4_HXILINX_Papilio_Pro
-      port map (I0=>leds(0),
-                I1=>leds(1),
-                I2=>leds(2),
-                I3=>leds(3),
-                O0=>WING_AL0,
-                O1=>WING_AL2,
-                O2=>WING_AL4,
-                O3=>WING_AL6);
-   
-   XLXI_50 : IBUF4_HXILINX_Papilio_Pro
-      port map (I0=>WING_AL1,
-                I1=>WING_AL3,
-                I2=>WING_AL5,
-                I3=>WING_AL7,
-                O0=>BUTTONS(0),
-                O1=>BUTTONS(1),
-                O2=>BUTTONS(2),
-                O3=>BUTTONS(3));
    
    XLXI_51 : ZPUino_Papilio_Pro_V2
       port map (ext_pins_in(100 downto 0)=>ext_pins_in(100 downto 0),
                 gpio_bus_in(200 downto 0)=>XLXN_409(200 downto 0),
                 wishbone_slot_video_in(100 downto 
             0)=>XLXI_51_wishbone_slot_video_in_openSignal(100 downto 0),
-                wishbone_slot_5_out(100 downto 0)=>XLXN_480(100 downto 0),
-                wishbone_slot_6_out(100 downto 
-            0)=>XLXI_51_wishbone_slot_6_out_openSignal(100 downto 0),
+                wishbone_slot_5_out(100 downto 
+            0)=>XLXI_51_wishbone_slot_5_out_openSignal(100 downto 0),
+                wishbone_slot_6_out(100 downto 0)=>XLXN_536(100 downto 0),
                 wishbone_slot_8_out(100 downto 
             0)=>XLXI_51_wishbone_slot_8_out_openSignal(100 downto 0),
                 wishbone_slot_9_out(100 downto 
@@ -495,13 +408,12 @@ begin
             0)=>XLXI_51_wishbone_slot_14_out_openSignal(100 downto 0),
                 clk_osc_32Mhz=>open,
                 clk_1Mhz=>open,
-                clk_96Mhz=>open,
+                clk_96Mhz=>XLXN_538,
                 ext_pins_out(100 downto 0)=>ext_pins_out(100 downto 0),
                 gpio_bus_out(200 downto 0)=>XLXN_408(200 downto 0),
-                vgaclkout=>open,
                 wishbone_slot_video_out=>open,
-                wishbone_slot_5_in(100 downto 0)=>XLXN_479(100 downto 0),
-                wishbone_slot_6_in=>open,
+                wishbone_slot_5_in=>open,
+                wishbone_slot_6_in(100 downto 0)=>XLXN_535(100 downto 0),
                 wishbone_slot_8_in=>open,
                 wishbone_slot_9_in=>open,
                 wishbone_slot_10_in=>open,
@@ -510,6 +422,37 @@ begin
                 wishbone_slot_13_in=>open,
                 wishbone_slot_14_in=>open,
                 ext_pins_inout(100 downto 0)=>ext_pins_inout(100 downto 0));
+   
+   XLXI_52 : AUDIO_zpuino_sa_sigmadeltaDAC
+      port map (clk_96Mhz=>XLXN_544,
+                data_in(17 downto 0)=>XLXN_539(17 downto 0),
+                audio_out=>XLXN_531);
+   
+   XLXI_53 : DSP_Wing
+      port map (clk_96Mhz=>XLXN_543,
+                spi_miso=>WING_CL2,
+                wishbone_in(100 downto 0)=>XLXN_536(100 downto 0),
+                audio_data(17 downto 0)=>XLXN_539(17 downto 0),
+                spi_clk=>WING_CL0,
+                spi_cs=>WING_CL3,
+                spi_mosi=>WING_CL1,
+                wishbone_out(100 downto 0)=>XLXN_535(100 downto 0));
+   
+   XLXI_54 : MISC_zpuino_sa_splitter2
+      port map (in1=>XLXN_538,
+                out1=>XLXN_544,
+                out2=>XLXN_543);
+   
+   XLXI_55 : Wing_Audio
+      port map (audio_left=>XLXN_529,
+                audio_right=>XLXN_530,
+                wt_miso(7 downto 0)=>XLXN_335(7 downto 0),
+                wt_mosi(7 downto 0)=>XLXN_336(7 downto 0));
+   
+   XLXI_56 : MISC_zpuino_sa_splitter2
+      port map (in1=>XLXN_531,
+                out1=>XLXN_529,
+                out2=>XLXN_530);
    
 end BEHAVIORAL;
 
