@@ -12,6 +12,8 @@ The idea is separated into 2 parts, the hardware components and the software(ish
 
 The circuit is quite simple, includes an `LM386` amplifier that optionally can be bypassed using a push-button, and an `MCP3208` 12bit 8channel ADC that is capable of highfrequency sampling (96k audio).
 
+![Wing schematic](https://raw.githubusercontent.com/telamon/papilio-dspwing/master/papilio-dsp-wing-v1.2_schem.png)
+
 There's a fritzing file included in this project, but don't try and order it as is
 as the PCB design is not complete nor tested.
 ( I never left the breadboard phase )
