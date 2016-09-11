@@ -12,7 +12,9 @@
 --  \___\/\___\ 
 --
 --Command: 
---Design Name: 
+--Design Name: DSP_Wing
+--this component expects an MCP3208 IC (12bit ADC) to be connected
+--to the SPI bus
 --
 
 library ieee;
@@ -30,10 +32,12 @@ entity DSP_Wing is
 			 
 			 --Put your external connections here
 			clk_96Mhz:      in std_logic;
+			-- MCP3208 connections
 			spi_clk : out  STD_LOGIC;
 			spi_miso : in  STD_LOGIC;
 			spi_mosi : out  STD_LOGIC;
 			spi_cs : out  STD_LOGIC;
+			-- final digital audio output.
 			audio_data: out std_logic_vector(17 downto 0)
 			);
 end DSP_Wing;
@@ -99,13 +103,21 @@ begin
 	process(sampling_clk)
 	begin
 
-		if falling_edge(sampling_clk) then	
+		if falling_edge(sampling_clk) then
+			-- Keep streaming the capture sequence
 			adc_shift_out <= adc_shift_out(18 downto 0) & adc_shift_out(19);
+			-- Keep reading the input from the adc into the 18bit buffer.
 			adc_shift_in <= adc_shift_in(18 downto 0) & spi_miso;
+
+			-- every 20 clocks a 1 will appear at index 0 of adc_state,
+			-- that's the signal for us that we have a full audio-sample stored in adc_shift_in
 			adc_state <= adc_state(0) & adc_state(19 downto 1);
 			if(adc_state(0) = '1') then
+				-- TODO: before dumping the sample into audio_data bus we should do some
+				-- effects application so that this truly can be called an DSP wing.
+				
 				audio_data <= adc_shift_in(11 downto 0) & "000000" ;
-				-- register1_in(17 downto 0) <= adc_shift_in(11 downto 0) & "000000" ;
+				-- register1_in(17 downto 0) <= adc_shift_in(11 downto 0) & "000000" ; -- tried exporting audio data to zpuino no point.
 			end if;			
 		end if;
 		 
@@ -116,7 +128,7 @@ begin
 	process(register0_out(0))
 	begin
 		if rising_edge(register0_out(0)) then
-			-- if register0 (4 downto 1) to int == 1 do channel select.
+			-- if register0 (4 downto 1) to int == 1 , update the ADC channel select, we have 8 of them in total.
 			adc_shift_out(5 downto 1) <= register0_out(5 downto 1);
 			
 		end if;
