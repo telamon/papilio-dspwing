@@ -7,7 +7,7 @@
     </attr>
     <netlist>
         <blockdef name="DSP_Wing">
-            <timestamp>2016-9-11T0:53:37</timestamp>
+            <timestamp>2016-9-11T18:56:33</timestamp>
             <rect width="432" x="64" y="-320" height="320" />
             <line x2="0" y1="-288" y2="-288" x1="64" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
@@ -16,9 +16,9 @@
             <line x2="560" y1="-160" y2="-160" x1="496" />
             <rect width="64" x="496" y="-44" height="24" />
             <line x2="560" y1="-32" y2="-32" x1="496" />
-            <rect width="24" x="276" y="-384" height="64" />
-            <line x2="288" y1="-320" y2="-384" x1="288" />
-            <rect width="24" x="244" y="-384" height="64" />
+            <rect width="16" x="232" y="-384" height="64" />
+            <line x2="240" y1="-320" y2="-384" x1="240" />
+            <rect width="16" x="248" y="-384" height="64" />
             <line x2="256" y1="-320" y2="-384" x1="256" />
         </blockdef>
         <block symbolname="DSP_Wing" name="XLXI_50">
