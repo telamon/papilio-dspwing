@@ -22,4 +22,15 @@
  http://www.gadgetfactory.net
  
  There is no actual code that can be run from this sketch.
+ 
+ DSP sketch example:
+ 
+  #include <DSP_Wing.h>
+
+  void setup() {
+    dsp.setup(6); // Initialize wing on wishbone slot 6
+  }
+  void loop(){
+    sleep(1000);
+  }
  */

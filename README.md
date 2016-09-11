@@ -4,6 +4,9 @@ DSPWing
 Opensourcing this long ongoing project of mine cause it's kinda cool.
 The idea is separated into 2 parts, the hardware components and the software(ish)
 
+  Overall project state:
+  clean audio playback without glitches. no effects existing yet.
+
 
 # Hardware
 
@@ -19,9 +22,20 @@ I suspect that this schematic could be improved with a couple of pulldown resist
 
 It's an Papilio DesignLab library.
 
-Installation: 
+Installation:
 
 * Download DesignLab (1.0.7+)
 * clone this repository into your `Sketchbook/libraries` folder
 * Sadly I forgot what to do with it after that. I'll write it down once i remember.
 
+Example sketch:
+
+
+    #include <DSP_Wing.h>
+
+    void setup() {
+      dsp.setup(6); // Initialize wing on wishbone slot 6
+    }
+    void loop(){
+      sleep(1000);
+    }
