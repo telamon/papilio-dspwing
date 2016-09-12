@@ -37,12 +37,12 @@ Example sketch:
 
 
     #include <DSP_Wing.h>
-
+    DSP_Wing dsp;
     void setup() {
       dsp.setup(6); // Initialize wing on wishbone slot 6
     }
     void loop(){
-      sleep(1000);
+      delay(1000);
     }
 
 
@@ -51,8 +51,8 @@ Example sketch:
 Todo:
 * Tremolo Module (depends on sample-clk)
 * Refactor SPI pins to directly connect to wing/gpio connector
-* Implement fx_ctrlbus
-* Export an output signal that indicates when a new sample is available for processing.
+* ~~Implement fx_ctrlbus~~
+* ~~Export an output signal that indicates when a new sample is available for processing.~~
 
 Right now I've got problems with goddamn xilinx ISE that keeps crashing.
 
