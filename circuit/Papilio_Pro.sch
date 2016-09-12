@@ -74,13 +74,15 @@
         <signal name="XLXN_583(7:0)" />
         <signal name="XLXN_584(100:0)" />
         <signal name="XLXN_585(100:0)" />
-        <signal name="XLXN_586(100:0)" />
         <signal name="XLXN_588" />
-        <signal name="XLXN_589(17:0)" />
         <signal name="WING_CH0" />
         <signal name="WING_CH1" />
         <signal name="WING_CH3" />
         <signal name="WING_CH2" />
+        <signal name="XLXN_590" />
+        <signal name="XLXN_592(16:0)" />
+        <signal name="XLXN_594(17:0)" />
+        <signal name="XLXN_595(17:0)" />
         <port polarity="BiDirectional" name="WING_AH0" />
         <port polarity="BiDirectional" name="WING_AH1" />
         <port polarity="BiDirectional" name="WING_AH2" />
@@ -329,6 +331,19 @@
             <rect width="64" x="320" y="-44" height="24" />
             <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
+        <blockdef name="tremolo">
+            <timestamp>2016-9-12T21:37:13</timestamp>
+            <rect width="368" x="64" y="-192" height="192" />
+            <line x2="0" y1="-80" y2="-80" x1="64" />
+            <rect width="64" x="0" y="-44" height="24" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <rect width="64" x="0" y="-140" height="24" />
+            <line x2="0" y1="-128" y2="-128" x1="64" />
+            <rect width="64" x="432" y="-44" height="24" />
+            <line x2="496" y1="-32" y2="-32" x1="432" />
+            <rect width="64" x="432" y="-140" height="24" />
+            <line x2="496" y1="-128" y2="-128" x1="432" />
+        </blockdef>
         <block symbolname="Wing_GPIO" name="XLXI_26">
             <blockpin signalname="XLXN_333(7:0)" name="wt_miso(7:0)" />
             <blockpin signalname="XLXN_334(7:0)" name="wt_mosi(7:0)" />
@@ -452,7 +467,7 @@
             <blockpin name="wishbone_slot_video_out(100:0)" />
         </block>
         <block symbolname="AUDIO_zpuino_sa_sigmadeltaDAC" name="XLXI_52">
-            <blockpin signalname="XLXN_589(17:0)" name="data_in(17:0)" />
+            <blockpin signalname="XLXN_595(17:0)" name="data_in(17:0)" />
             <blockpin signalname="XLXN_531" name="audio_out" />
             <blockpin signalname="XLXN_544" name="clk_96Mhz" />
         </block>
@@ -464,9 +479,9 @@
             <blockpin signalname="WING_CH3" name="spi_cs" />
             <blockpin signalname="XLXN_584(100:0)" name="wishbone_in(100:0)" />
             <blockpin signalname="XLXN_585(100:0)" name="wishbone_out(100:0)" />
-            <blockpin signalname="XLXN_589(17:0)" name="audio_data(17:0)" />
-            <blockpin name="sample_available" />
-            <blockpin name="fx_ctrl(16:0)" />
+            <blockpin signalname="XLXN_594(17:0)" name="audio_data(17:0)" />
+            <blockpin signalname="XLXN_590" name="sample_available" />
+            <blockpin signalname="XLXN_592(16:0)" name="fx_ctrl(16:0)" />
         </block>
         <block symbolname="MISC_zpuino_sa_splitter2" name="XLXI_54">
             <blockpin signalname="XLXN_538" name="in1" />
@@ -487,6 +502,13 @@
         <block symbolname="Wing_GPIO" name="XLXI_57">
             <blockpin signalname="XLXN_582(7:0)" name="wt_miso(7:0)" />
             <blockpin signalname="XLXN_583(7:0)" name="wt_mosi(7:0)" />
+        </block>
+        <block symbolname="tremolo" name="XLXI_58">
+            <blockpin signalname="XLXN_590" name="sample_ready" />
+            <blockpin signalname="XLXN_594(17:0)" name="audio_in(17:0)" />
+            <blockpin signalname="XLXN_592(16:0)" name="ctrl_in(16:0)" />
+            <blockpin signalname="XLXN_595(17:0)" name="audio_out(17:0)" />
+            <blockpin name="ctrl_out(16:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -784,11 +806,6 @@
             <wire x2="464" y1="1088" y2="1600" x1="464" />
             <wire x2="688" y1="1600" y2="1600" x1="464" />
         </branch>
-        <branch name="XLXN_589(17:0)">
-            <wire x2="2272" y1="2000" y2="2000" x1="1248" />
-            <wire x2="2272" y1="1424" y2="2000" x1="2272" />
-            <wire x2="3296" y1="1424" y2="1424" x1="2272" />
-        </branch>
         <branch name="WING_CH0">
             <wire x2="1280" y1="1600" y2="1600" x1="1248" />
         </branch>
@@ -805,5 +822,21 @@
             <wire x2="688" y1="1792" y2="1792" x1="656" />
         </branch>
         <iomarker fontsize="28" x="656" y="1792" name="WING_CH2" orien="R180" />
+        <branch name="XLXN_590">
+            <wire x2="1632" y1="1952" y2="1952" x1="1248" />
+        </branch>
+        <branch name="XLXN_592(16:0)">
+            <wire x2="1632" y1="1904" y2="1904" x1="1248" />
+        </branch>
+        <instance x="1632" y="2032" name="XLXI_58" orien="R0">
+        </instance>
+        <branch name="XLXN_594(17:0)">
+            <wire x2="1632" y1="2000" y2="2000" x1="1248" />
+        </branch>
+        <branch name="XLXN_595(17:0)">
+            <wire x2="2704" y1="2000" y2="2000" x1="2128" />
+            <wire x2="2704" y1="1424" y2="2000" x1="2704" />
+            <wire x2="3296" y1="1424" y2="1424" x1="2704" />
+        </branch>
     </sheet>
 </drawing>

@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 09/12/2016 23:01:20
+-- /___/   /\     Timestamp : 09/12/2016 23:37:58
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -118,7 +118,12 @@ architecture BEHAVIORAL of Papilio_Pro is
    signal XLXN_585                                  : std_logic_vector (100 
          downto 0);
    signal XLXN_588                                  : std_logic;
-   signal XLXN_589                                  : std_logic_vector (17 
+   signal XLXN_590                                  : std_logic;
+   signal XLXN_592                                  : std_logic_vector (16 
+         downto 0);
+   signal XLXN_594                                  : std_logic_vector (17 
+         downto 0);
+   signal XLXN_595                                  : std_logic_vector (17 
          downto 0);
    signal XLXI_38_Flex_Pin_out_0_openSignal         : std_logic;
    signal XLXI_38_Flex_Pin_out_1_openSignal         : std_logic;
@@ -289,6 +294,14 @@ architecture BEHAVIORAL of Papilio_Pro is
              wt_mosi     : inout std_logic_vector (7 downto 0));
    end component;
    
+   component tremolo
+      port ( sample_ready : in    std_logic; 
+             audio_in     : in    std_logic_vector (17 downto 0); 
+             ctrl_in      : in    std_logic_vector (16 downto 0); 
+             audio_out    : out   std_logic_vector (17 downto 0); 
+             ctrl_out     : out   std_logic_vector (16 downto 0));
+   end component;
+   
 begin
    XLXI_23 : Wing_GPIO
       port map (wt_miso(7 downto 0)=>XLXN_327(7 downto 0),
@@ -423,16 +436,16 @@ begin
    
    XLXI_52 : AUDIO_zpuino_sa_sigmadeltaDAC
       port map (clk_96Mhz=>XLXN_544,
-                data_in(17 downto 0)=>XLXN_589(17 downto 0),
+                data_in(17 downto 0)=>XLXN_595(17 downto 0),
                 audio_out=>XLXN_531);
    
    XLXI_53 : DSP_Wing
       port map (clk_96Mhz=>XLXN_588,
                 spi_miso=>WING_CH2,
                 wishbone_in(100 downto 0)=>XLXN_584(100 downto 0),
-                audio_data(17 downto 0)=>XLXN_589(17 downto 0),
-                fx_ctrl=>open,
-                sample_available=>open,
+                audio_data(17 downto 0)=>XLXN_594(17 downto 0),
+                fx_ctrl(16 downto 0)=>XLXN_592(16 downto 0),
+                sample_available=>XLXN_590,
                 spi_clk=>WING_CH0,
                 spi_cs=>WING_CH3,
                 spi_mosi=>WING_CH1,
@@ -457,6 +470,13 @@ begin
    XLXI_57 : Wing_GPIO
       port map (wt_miso(7 downto 0)=>XLXN_582(7 downto 0),
                 wt_mosi(7 downto 0)=>XLXN_583(7 downto 0));
+   
+   XLXI_58 : tremolo
+      port map (audio_in(17 downto 0)=>XLXN_594(17 downto 0),
+                ctrl_in(16 downto 0)=>XLXN_592(16 downto 0),
+                sample_ready=>XLXN_590,
+                audio_out(17 downto 0)=>XLXN_595(17 downto 0),
+                ctrl_out=>open);
    
 end BEHAVIORAL;
 
