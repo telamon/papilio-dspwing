@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 09/12/2016 22:22:11
+-- /___/   /\     Timestamp : 09/12/2016 23:01:20
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -27,7 +27,11 @@ use UNISIM.Vcomponents.ALL;
 
 entity Papilio_Pro is
    port ( ext_pins_in    : in    std_logic_vector (100 downto 0); 
+          WING_CH2       : in    std_logic; 
           ext_pins_out   : out   std_logic_vector (100 downto 0); 
+          WING_CH0       : out   std_logic; 
+          WING_CH1       : out   std_logic; 
+          WING_CH3       : out   std_logic; 
           ext_pins_inout : inout std_logic_vector (100 downto 0); 
           WING_AH0       : inout std_logic; 
           WING_AH1       : inout std_logic; 
@@ -61,10 +65,6 @@ entity Papilio_Pro is
           WING_BL5       : inout std_logic; 
           WING_BL6       : inout std_logic; 
           WING_BL7       : inout std_logic; 
-          WING_CH0       : inout std_logic; 
-          WING_CH1       : inout std_logic; 
-          WING_CH2       : inout std_logic; 
-          WING_CH3       : inout std_logic; 
           WING_CH4       : inout std_logic; 
           WING_CH5       : inout std_logic; 
           WING_CH6       : inout std_logic; 
@@ -107,18 +107,18 @@ architecture BEHAVIORAL of Papilio_Pro is
    signal XLXN_529                                  : std_logic;
    signal XLXN_530                                  : std_logic;
    signal XLXN_531                                  : std_logic;
-   signal XLXN_535                                  : std_logic_vector (100 
-         downto 0);
-   signal XLXN_536                                  : std_logic_vector (100 
-         downto 0);
    signal XLXN_538                                  : std_logic;
    signal XLXN_544                                  : std_logic;
-   signal XLXN_573                                  : std_logic;
-   signal XLXN_577                                  : std_logic_vector (17 
+   signal XLXN_582                                  : std_logic_vector (7 
          downto 0);
-   signal XLXN_580                                  : std_logic_vector (7 
+   signal XLXN_583                                  : std_logic_vector (7 
          downto 0);
-   signal XLXN_581                                  : std_logic_vector (7 
+   signal XLXN_584                                  : std_logic_vector (100 
+         downto 0);
+   signal XLXN_585                                  : std_logic_vector (100 
+         downto 0);
+   signal XLXN_588                                  : std_logic;
+   signal XLXN_589                                  : std_logic_vector (17 
          downto 0);
    signal XLXI_38_Flex_Pin_out_0_openSignal         : std_logic;
    signal XLXI_38_Flex_Pin_out_1_openSignal         : std_logic;
@@ -264,13 +264,16 @@ architecture BEHAVIORAL of Papilio_Pro is
    end component;
    
    component DSP_Wing
-      port ( audio_data   : out   std_logic_vector (17 downto 0); 
-             wt_mosi      : inout std_logic_vector (7 downto 0); 
-             wishbone_out : out   std_logic_vector (100 downto 0); 
-             wishbone_in  : in    std_logic_vector (100 downto 0); 
-             fx_ctrl      : out   std_logic_vector (16 downto 0); 
-             wt_miso      : inout std_logic_vector (7 downto 0); 
-             clk_96Mhz    : in    std_logic);
+      port ( clk_96Mhz        : in    std_logic; 
+             spi_miso         : in    std_logic; 
+             spi_clk          : out   std_logic; 
+             spi_mosi         : out   std_logic; 
+             spi_cs           : out   std_logic; 
+             wishbone_in      : in    std_logic_vector (100 downto 0); 
+             wishbone_out     : out   std_logic_vector (100 downto 0); 
+             audio_data       : out   std_logic_vector (17 downto 0); 
+             sample_available : out   std_logic; 
+             fx_ctrl          : out   std_logic_vector (16 downto 0));
    end component;
    
    component MISC_zpuino_sa_splitter2
@@ -322,13 +325,13 @@ begin
                 WingType_miso_AL(7 downto 0)=>XLXN_335(7 downto 0),
                 WingType_miso_BH(7 downto 0)=>XLXN_329(7 downto 0),
                 WingType_miso_BL(7 downto 0)=>XLXN_331(7 downto 0),
-                WingType_miso_CH(7 downto 0)=>XLXN_580(7 downto 0),
+                WingType_miso_CH(7 downto 0)=>XLXN_582(7 downto 0),
                 WingType_miso_CL(7 downto 0)=>XLXN_327(7 downto 0),
                 WingType_mosi_AH(7 downto 0)=>XLXN_334(7 downto 0),
                 WingType_mosi_AL(7 downto 0)=>XLXN_336(7 downto 0),
                 WingType_mosi_BH(7 downto 0)=>XLXN_330(7 downto 0),
                 WingType_mosi_BL(7 downto 0)=>XLXN_332(7 downto 0),
-                WingType_mosi_CH(7 downto 0)=>XLXN_581(7 downto 0),
+                WingType_mosi_CH(7 downto 0)=>XLXN_583(7 downto 0),
                 WingType_mosi_CL(7 downto 0)=>XLXN_328(7 downto 0),
                 WING_AH0=>WING_AH0,
                 WING_AH1=>WING_AH1,
@@ -362,10 +365,10 @@ begin
                 WING_BL5=>WING_BL5,
                 WING_BL6=>WING_BL6,
                 WING_BL7=>WING_BL7,
-                WING_CH0=>WING_CH0,
-                WING_CH1=>WING_CH1,
-                WING_CH2=>WING_CH2,
-                WING_CH3=>WING_CH3,
+                WING_CH0=>open,
+                WING_CH1=>open,
+                WING_CH2=>open,
+                WING_CH3=>open,
                 WING_CH4=>WING_CH4,
                 WING_CH5=>WING_CH5,
                 WING_CH6=>WING_CH6,
@@ -386,7 +389,7 @@ begin
             0)=>XLXI_51_wishbone_slot_video_in_openSignal(100 downto 0),
                 wishbone_slot_5_out(100 downto 
             0)=>XLXI_51_wishbone_slot_5_out_openSignal(100 downto 0),
-                wishbone_slot_6_out(100 downto 0)=>XLXN_536(100 downto 0),
+                wishbone_slot_6_out(100 downto 0)=>XLXN_584(100 downto 0),
                 wishbone_slot_8_out(100 downto 
             0)=>XLXI_51_wishbone_slot_8_out_openSignal(100 downto 0),
                 wishbone_slot_9_out(100 downto 
@@ -408,7 +411,7 @@ begin
                 gpio_bus_out(200 downto 0)=>XLXN_408(200 downto 0),
                 wishbone_slot_video_out=>open,
                 wishbone_slot_5_in=>open,
-                wishbone_slot_6_in(100 downto 0)=>XLXN_535(100 downto 0),
+                wishbone_slot_6_in(100 downto 0)=>XLXN_585(100 downto 0),
                 wishbone_slot_8_in=>open,
                 wishbone_slot_9_in=>open,
                 wishbone_slot_10_in=>open,
@@ -420,22 +423,25 @@ begin
    
    XLXI_52 : AUDIO_zpuino_sa_sigmadeltaDAC
       port map (clk_96Mhz=>XLXN_544,
-                data_in(17 downto 0)=>XLXN_577(17 downto 0),
+                data_in(17 downto 0)=>XLXN_589(17 downto 0),
                 audio_out=>XLXN_531);
    
    XLXI_53 : DSP_Wing
-      port map (clk_96Mhz=>XLXN_573,
-                wishbone_in(100 downto 0)=>XLXN_536(100 downto 0),
-                audio_data(17 downto 0)=>XLXN_577(17 downto 0),
+      port map (clk_96Mhz=>XLXN_588,
+                spi_miso=>WING_CH2,
+                wishbone_in(100 downto 0)=>XLXN_584(100 downto 0),
+                audio_data(17 downto 0)=>XLXN_589(17 downto 0),
                 fx_ctrl=>open,
-                wishbone_out(100 downto 0)=>XLXN_535(100 downto 0),
-                wt_miso(7 downto 0)=>XLXN_580(7 downto 0),
-                wt_mosi(7 downto 0)=>XLXN_581(7 downto 0));
+                sample_available=>open,
+                spi_clk=>WING_CH0,
+                spi_cs=>WING_CH3,
+                spi_mosi=>WING_CH1,
+                wishbone_out(100 downto 0)=>XLXN_585(100 downto 0));
    
    XLXI_54 : MISC_zpuino_sa_splitter2
       port map (in1=>XLXN_538,
                 out1=>XLXN_544,
-                out2=>XLXN_573);
+                out2=>XLXN_588);
    
    XLXI_55 : Wing_Audio
       port map (audio_left=>XLXN_529,
@@ -447,6 +453,10 @@ begin
       port map (in1=>XLXN_531,
                 out1=>XLXN_529,
                 out2=>XLXN_530);
+   
+   XLXI_57 : Wing_GPIO
+      port map (wt_miso(7 downto 0)=>XLXN_582(7 downto 0),
+                wt_mosi(7 downto 0)=>XLXN_583(7 downto 0));
    
 end BEHAVIORAL;
 

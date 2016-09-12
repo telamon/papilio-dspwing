@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="DSP_Wing">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2016-9-12T19:34:24</timestamp>
-    <pin polarity="Output" x="560" y="-224" name="audio_data(17:0)" />
-    <pin polarity="BiDirectional" x="560" y="-32" name="wt_mosi(7:0)" />
-    <pin polarity="Output" x="256" y="-368" name="wishbone_out(100:0)" />
-    <pin polarity="Input" x="272" y="-368" name="wishbone_in(100:0)" />
-    <pin polarity="Output" x="560" y="-256" name="fx_ctrl(16:0)" />
-    <pin polarity="BiDirectional" x="560" y="-96" name="wt_miso(7:0)" />
-    <pin polarity="Input" x="16" y="-288" name="clk_96Mhz" />
+    <timestamp>2016-9-12T20:56:8</timestamp>
+    <pin polarity="Input" x="0" y="-416" name="clk_96Mhz" />
+    <pin polarity="Input" x="0" y="-224" name="spi_miso" />
+    <pin polarity="Output" x="560" y="-416" name="spi_clk" />
+    <pin polarity="Output" x="560" y="-352" name="spi_mosi" />
+    <pin polarity="Output" x="560" y="-288" name="spi_cs" />
+    <pin polarity="Input" x="272" y="-496" name="wishbone_in(100:0)" />
+    <pin polarity="Output" x="256" y="-496" name="wishbone_out(100:0)" />
+    <pin polarity="Output" x="560" y="-16" name="audio_data(17:0)" />
+    <pin polarity="Output" x="560" y="-64" name="sample_available" />
+    <pin polarity="Output" x="560" y="-112" name="fx_ctrl(16:0)" />
     <graph>
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-224" type="pin audio_data(17:0)" />
-        <rect width="64" x="496" y="-236" height="24" />
-        <line x2="560" y1="-224" y2="-224" x1="496" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-32" type="pin wt_mosi(7:0)" />
-        <rect width="64" x="496" y="-44" height="24" />
-        <line x2="560" y1="-32" y2="-32" x1="496" />
-        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="292" y="64" type="symbol" />
-        <rect width="16" x="248" y="-368" height="48" />
-        <line x2="256" y1="-368" y2="-320" x1="256" />
-        <rect width="16" x="264" y="-368" height="48" />
-        <line x2="272" y1="-368" y2="-320" x1="272" />
-        <rect width="432" x="64" y="-320" height="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-256" type="pin fx_ctrl(16:0)" />
-        <rect width="64" x="496" y="-268" height="24" />
-        <line x2="560" y1="-256" y2="-256" x1="496" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-96" type="pin wt_miso(7:0)" />
-        <rect width="64" x="496" y="-108" height="24" />
-        <line x2="560" y1="-96" y2="-96" x1="496" />
-        <line x2="64" y1="-288" y2="-288" x1="16" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-288" type="pin clk_96Mhz" />
+        <rect width="432" x="64" y="-448" height="448" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-416" type="pin clk_96Mhz" />
+        <line x2="0" y1="-416" y2="-416" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-224" type="pin spi_miso" />
+        <line x2="0" y1="-224" y2="-224" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-416" type="pin spi_clk" />
+        <line x2="560" y1="-416" y2="-416" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-352" type="pin spi_mosi" />
+        <line x2="560" y1="-352" y2="-352" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-288" type="pin spi_cs" />
+        <line x2="560" y1="-288" y2="-288" x1="496" />
+        <rect width="16" x="264" y="-496" height="48" />
+        <line x2="272" y1="-496" y2="-448" x1="272" />
+        <rect width="16" x="248" y="-496" height="48" />
+        <line x2="256" y1="-496" y2="-448" x1="256" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-16" type="pin audio_data(17:0)" />
+        <rect width="64" x="496" y="-28" height="24" />
+        <line x2="560" y1="-16" y2="-16" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-64" type="pin sample_available" />
+        <line x2="560" y1="-64" y2="-64" x1="496" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-112" type="pin fx_ctrl(16:0)" />
+        <rect width="64" x="496" y="-124" height="24" />
+        <line x2="560" y1="-112" y2="-112" x1="496" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="300" y="76" type="symbol" />
     </graph>
 </symbol>
