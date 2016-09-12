@@ -24,11 +24,14 @@ I suspect that this schematic could be improved with a couple of pulldown resist
 
 It's an Papilio DesignLab library.
 
-Installation:
+Usage & Installation:
 
 * Download DesignLab (1.0.7+)
 * clone this repository into your `Sketchbook/libraries` folder
-* Sadly I forgot what to do with it after that. I'll write it down once i remember.
+* [Include the dspwing module](https://github.com/telamon/papilio-dspwing/raw/master/papilio_schematic-minimum_dspwing_setup.pdf) in your papilio/zpuino circuit using DesignLab/Xilinx ISE
+* Generate a bit file and load it to your papilio. 
+* Develop some effects in VHDL
+
 
 Example sketch:
 
