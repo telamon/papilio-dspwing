@@ -41,3 +41,16 @@ Example sketch:
     void loop(){
       sleep(1000);
     }
+
+
+# Note to self:
+
+Todo:
+* Tremolo Module (depends on sample-clk)
+* Refactor SPI pins to directly connect to wing/gpio connector
+* Implement fx_ctrlbus
+* Export an output signal that indicates when a new sample is available for processing.
+
+Right now I've got problems with goddamn xilinx ISE that keeps crashing.
+
+
