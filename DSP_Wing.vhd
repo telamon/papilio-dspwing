@@ -1,17 +1,17 @@
 --------------------------------------------------------------------------------
 -- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --------------------------------------------------------------------------------
---   ____  ____ 
---  /   /\/   / 
--- /___/  \  /    Vendor: Xilinx 
+--   ____  ____
+--  /   /\/   /
+-- /___/  \  /    Vendor: Xilinx
 -- \   \   \/     Version : 14.7
---  \   \         Application : 
+--  \   \         Application :
 --  /   /         Filename : xil_12112_30
 -- /___/   /\     Timestamp : 09/23/2014 15:24:59
--- \   \  /  \ 
---  \___\/\___\ 
+-- \   \  /  \
+--  \___\/\___\
 --
---Command: 
+--Command:
 --Design Name: DSP_Wing
 --this component expects an MCP3208 IC (12bit ADC) to be connected
 --to the SPI bus
@@ -27,18 +27,25 @@ library DesignLab;
 use DesignLab.ALL;
 
 entity DSP_Wing is
-   port ( wishbone_in  : in    std_logic_vector (100 downto 0); 
+   port ( wishbone_in  : in    std_logic_vector (100 downto 0);
           wishbone_out : out   std_logic_vector (100 downto 0);
-			 
+
 			 --Put your external connections here
 			clk_96Mhz:      in std_logic;
 			-- MCP3208 connections
-			spi_clk : out  STD_LOGIC;
-			spi_miso : in  STD_LOGIC;
-			spi_mosi : out  STD_LOGIC;
-			spi_cs : out  STD_LOGIC;
+         --spi_clk : out  STD_LOGIC;
+         --spi_miso : in  STD_LOGIC;
+         --spi_mosi : out  STD_LOGIC;
+         --spi_cs : out  STD_LOGIC;
+         wt_miso: inout std_logic_vector(7 downto 0); 
+         wt_mosi: inout std_logic_vector(7 downto 0);
 			-- final digital audio output.
-			audio_data: out std_logic_vector(17 downto 0)
+			audio_data: out std_logic_vector(17 downto 0);
+			-- A falling edge of sample_available signifies availability of a new audio sample in audio_data
+			sample_available: out STD_LOGIC;
+			-- fx controlbus 0  0000 0000 00000000
+			--               en fxid prop value
+			fx_ctrl: out std_logic_vector(16 downto 0)
 			);
 end DSP_Wing;
 
@@ -49,28 +56,28 @@ architecture BEHAVIORAL of DSP_Wing is
 		wishbone_in : IN std_logic_vector(100 downto 0);
 		register0_in : IN std_logic_vector(31 downto 0);
 		register1_in : IN std_logic_vector(31 downto 0);
-		register2_in : IN std_logic_vector(31 downto 0);          
+		register2_in : IN std_logic_vector(31 downto 0);
 		wishbone_out : OUT std_logic_vector(100 downto 0);
 		register0_out : OUT std_logic_vector(31 downto 0);
 		register1_out : OUT std_logic_vector(31 downto 0);
 		register2_out : OUT std_logic_vector(31 downto 0)
 		);
 	END COMPONENT;
-	
+
 	signal register0_in: std_logic_vector(31 downto 0);
 	signal register0_out: std_logic_vector(31 downto 0);
 	signal register1_in: std_logic_vector(31 downto 0);
 	signal register1_out: std_logic_vector(31 downto 0);
 	signal register2_in: std_logic_vector(31 downto 0);
-	signal register2_out: std_logic_vector(31 downto 0);	
-	
-		
+	signal register2_out: std_logic_vector(31 downto 0);
+
+
 	--Put your unique register names here
 	-- 0 clock,1 startbit,1 capture mode, 000 channel select, others => don't care.
 	signal adc_shift_out : std_logic_vector( 19 downto 0 ):=  "01100011000000000000";
 	signal adc_shift_in : std_logic_vector( 19 downto 0 ):= (others => '0');
 	signal adc_state : std_logic_vector( 19 downto 0 ):= (0 => '1', others => '0');
-	
+
 	signal sampling_clk : std_logic := '0';
 	signal counter : unsigned(8 downto 0);
 begin
@@ -79,12 +86,23 @@ begin
 --	leds <= register0_out(3 downto 0);
 --	register1_in(3 downto 0) <= buttons;
 
-	spi_cs <= adc_state(0);
-	spi_mosi <= adc_shift_out(19);
-	spi_clk <= sampling_clk;
-		
-	
-	
+	wt_miso(0) <= sampling_clk;     -- spi_clk
+	wt_miso(1) <= adc_shift_out(19); -- spi_mosi
+	wt_miso(2) <= wt_mosi(2); -- spi_miso
+	wt_miso(3) <= adc_state(0);  -- spi_cs
+	wt_miso(4) <= wt_mosi(4);
+	wt_miso(5) <= wt_mosi(5);
+	wt_miso(6) <= wt_mosi(6);
+	wt_miso(7) <= wt_mosi(7);
+	--spi_cs <= adc_state(0);
+	--spi_mosi <= adc_shift_out(19);
+	--spi_clk <= sampling_clk;
+	sample_available <= adc_state(0);
+
+
+
+
+
 	-- divide main clock from 96Mhz to 1.92Mhz = (20clocks per sample) = 96k samples/s = 96Khz audio
 	process(clk_96Mhz)
 	begin
@@ -97,7 +115,7 @@ begin
 			end if;
 		end if;
 	end process;
-	
+
 
 	-- capture samples
 	process(sampling_clk)
@@ -107,7 +125,8 @@ begin
 			-- Keep streaming the capture sequence
 			adc_shift_out <= adc_shift_out(18 downto 0) & adc_shift_out(19);
 			-- Keep reading the input from the adc into the 18bit buffer.
-			adc_shift_in <= adc_shift_in(18 downto 0) & spi_miso;
+			adc_shift_in <= adc_shift_in(18 downto 0) & wt_mosi(2);
+			
 
 			-- every 20 clocks a 1 will appear at index 0 of adc_state,
 			-- that's the signal for us that we have a full audio-sample stored in adc_shift_in
@@ -115,25 +134,28 @@ begin
 			if(adc_state(0) = '1') then
 				-- TODO: before dumping the sample into audio_data bus we should do some
 				-- effects application so that this truly can be called an DSP wing.
-				
+
 				audio_data <= adc_shift_in(11 downto 0) & "000000" ;
 				-- register1_in(17 downto 0) <= adc_shift_in(11 downto 0) & "000000" ; -- tried exporting audio data to zpuino no point.
-			end if;			
+			end if;
 		end if;
-		 
-		
+
+
 	end process;
-	
+
 	-- Handle register controls
-	--process(register0_out(0))
-	--begin
-	--	if rising_edge(register0_out(0)) then
-			-- if register0 (4 downto 1) to int == 1 , update the ADC channel select, we have 8 of them in total.
-	--		adc_shift_out(5 downto 1) <= register0_out(5 downto 1);
-			
-	--	end if;
-	--end process;
-	
+	process(register0_out(0))
+	begin
+		if rising_edge(register0_out(0)) then
+			--if register0 (4 downto 1) to int == 1 , update the ADC channel select, we have 8 of them in total.
+			--adc_shift_out(5 downto 1) <= register0_out(5 downto 1);
+			fx_ctrl(16 downto 0 ) <= '1' & register0_out(15 downto 0);
+		end if;
+		if falling_edge(register0_out(0)) then
+			fx_ctrl(16 downto 0) <= (others => '0');
+		end if;
+	end process;
+
 
 	--Do not touch
 	Inst_Wishbone_to_Registers: Wishbone_to_Registers PORT MAP(
