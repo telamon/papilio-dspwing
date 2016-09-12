@@ -33,18 +33,18 @@ entity DSP_Wing is
 			 --Put your external connections here
 			clk_96Mhz:      in std_logic;
 			-- MCP3208 connections
-         --spi_clk : out  STD_LOGIC;
-         --spi_miso : in  STD_LOGIC;
-         --spi_mosi : out  STD_LOGIC;
-         --spi_cs : out  STD_LOGIC;
-         wt_miso: inout std_logic_vector(7 downto 0); 
-         wt_mosi: inout std_logic_vector(7 downto 0);
+         spi_clk : out  STD_LOGIC;
+         spi_miso : in  STD_LOGIC;
+         spi_mosi : out  STD_LOGIC;
+         spi_cs : out  STD_LOGIC;
+
 			-- final digital audio output.
 			audio_data: out std_logic_vector(17 downto 0);
 			-- A falling edge of sample_available signifies availability of a new audio sample in audio_data
 			sample_available: out STD_LOGIC;
 			-- fx controlbus 0  0000 0000 00000000
 			--               en fxid prop value
+			-- usage: write to the register0_in in the above sequence and then flip the en bit to 1 and back to 0 from C/C++
 			fx_ctrl: out std_logic_vector(16 downto 0)
 			);
 end DSP_Wing;
@@ -86,17 +86,10 @@ begin
 --	leds <= register0_out(3 downto 0);
 --	register1_in(3 downto 0) <= buttons;
 
-	wt_miso(0) <= sampling_clk;     -- spi_clk
-	wt_miso(1) <= adc_shift_out(19); -- spi_mosi
-	wt_miso(2) <= wt_mosi(2); -- spi_miso
-	wt_miso(3) <= adc_state(0);  -- spi_cs
-	wt_miso(4) <= wt_mosi(4);
-	wt_miso(5) <= wt_mosi(5);
-	wt_miso(6) <= wt_mosi(6);
-	wt_miso(7) <= wt_mosi(7);
-	--spi_cs <= adc_state(0);
-	--spi_mosi <= adc_shift_out(19);
-	--spi_clk <= sampling_clk;
+
+	spi_cs <= adc_state(0);
+	spi_mosi <= adc_shift_out(19);
+	spi_clk <= sampling_clk;
 	sample_available <= adc_state(0);
 
 
@@ -125,7 +118,7 @@ begin
 			-- Keep streaming the capture sequence
 			adc_shift_out <= adc_shift_out(18 downto 0) & adc_shift_out(19);
 			-- Keep reading the input from the adc into the 18bit buffer.
-			adc_shift_in <= adc_shift_in(18 downto 0) & wt_mosi(2);
+			adc_shift_in <= adc_shift_in(18 downto 0) & spi_miso;
 			
 
 			-- every 20 clocks a 1 will appear at index 0 of adc_state,
