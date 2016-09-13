@@ -26,10 +26,22 @@ class DSP_Wing
   public:
     DSP_Wing();
     void setup(unsigned int wishboneSlot);
-    unsigned long getSample18();
-    //void writeLEDs(unsigned long value);
+    void setFXCTRL(unsigned char fx,unsigned char param, unsigned char value);
+    void enableFX(unsigned char fx,boolean enabled);
+    void setTremoloWidth(unsigned char pulseWidth);
+
   private:
     int wishboneSlot;
 };
+
+#define REG_FX_CTRL 0
+
+// Effects definition
+#define FX_TREMOLO 1
+
+// Parameters definition
+#define PARAM_ENABLED 0 // param enabled is 0 for all effects
+#define PARAM_TREMOLO_WIDTH 1
+#define PARAM_TREMOLO_DEPTH 2
 
 #endif

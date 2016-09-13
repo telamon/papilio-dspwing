@@ -38,10 +38,12 @@ entity DSP_Wing is
          spi_mosi : out  STD_LOGIC;
          spi_cs : out  STD_LOGIC;
 
-			-- final digital audio output.
+			-- Digital audio output.
 			audio_data: out std_logic_vector(17 downto 0);
+			
 			-- A falling edge of sample_available signifies availability of a new audio sample in audio_data
 			sample_available: out STD_LOGIC;
+			
 			-- fx controlbus 0  0000 0000 00000000
 			--               en fxid prop value
 			-- usage: write to the register0_in in the above sequence and then flip the en bit to 1 and back to 0 from C/C++
@@ -91,7 +93,9 @@ begin
 	spi_mosi <= adc_shift_out(19);
 	spi_clk <= sampling_clk;
 	sample_available <= adc_state(0);
-
+	
+	-- export low 17bits of register 0 as fx_ctrl signal
+	fx_ctrl <= register0_out(16 downto 0);
 
 
 
@@ -137,17 +141,13 @@ begin
 	end process;
 
 	-- Handle register controls
-	process(register0_out(0))
-	begin
-		if rising_edge(register0_out(0)) then
-			--if register0 (4 downto 1) to int == 1 , update the ADC channel select, we have 8 of them in total.
-			--adc_shift_out(5 downto 1) <= register0_out(5 downto 1);
-			fx_ctrl(16 downto 0 ) <= '1' & register0_out(15 downto 0);
-		end if;
-		if falling_edge(register0_out(0)) then
-			fx_ctrl(16 downto 0) <= (others => '0');
-		end if;
-	end process;
+	--process(register0_out(0))
+	--begin
+	--	if rising_edge(register0_out(0)) then
+	--		--if register0 (4 downto 1) to int == 1 , update the ADC channel select, we have 8 of them in total.
+	--		--adc_shift_in(5 downto 1) <= register0_in(5 downto 1);
+	--	end if;
+	--end process;
 
 
 	--Do not touch
