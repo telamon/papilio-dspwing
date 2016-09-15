@@ -6,15 +6,20 @@
 
   }
   void loop(){
+    
     // Wait for serial input.
-
     if(Serial.available()>0){
+      // debug print.. 
+      Serial.println("Attempting to enable effect");
+      dsp.enableFX(FX_TREMOLO,true);
+      Serial.println("tremolo enbled");
+      
       unsigned char pw = Serial.read();
       Serial.print("Setting tremolo pulse-width to ");
       Serial.println(pw);
       Serial.print(pw*376,DEC);
       Serial.println("Hz");
-      dsp.enableFX(FX_TREMOLO,true);
+    
       //dsp.setTremoloWidth(pw);
     }
     delay(500);
