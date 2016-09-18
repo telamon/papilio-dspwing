@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 09/12/2016 23:37:58
+-- /___/   /\     Timestamp : 09/18/2016 23:15:09
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -113,10 +113,6 @@ architecture BEHAVIORAL of Papilio_Pro is
          downto 0);
    signal XLXN_583                                  : std_logic_vector (7 
          downto 0);
-   signal XLXN_584                                  : std_logic_vector (100 
-         downto 0);
-   signal XLXN_585                                  : std_logic_vector (100 
-         downto 0);
    signal XLXN_588                                  : std_logic;
    signal XLXN_590                                  : std_logic;
    signal XLXN_592                                  : std_logic_vector (16 
@@ -124,6 +120,14 @@ architecture BEHAVIORAL of Papilio_Pro is
    signal XLXN_594                                  : std_logic_vector (17 
          downto 0);
    signal XLXN_595                                  : std_logic_vector (17 
+         downto 0);
+   signal XLXN_598                                  : std_logic_vector (100 
+         downto 0);
+   signal XLXN_599                                  : std_logic_vector (100 
+         downto 0);
+   signal XLXN_602                                  : std_logic_vector (100 
+         downto 0);
+   signal XLXN_603                                  : std_logic_vector (100 
          downto 0);
    signal XLXI_38_Flex_Pin_out_0_openSignal         : std_logic;
    signal XLXI_38_Flex_Pin_out_1_openSignal         : std_logic;
@@ -134,8 +138,6 @@ architecture BEHAVIORAL of Papilio_Pro is
    signal XLXI_51_wishbone_slot_video_in_openSignal : std_logic_vector (100 
          downto 0);
    signal XLXI_51_wishbone_slot_5_out_openSignal    : std_logic_vector (100 
-         downto 0);
-   signal XLXI_51_wishbone_slot_8_out_openSignal    : std_logic_vector (100 
          downto 0);
    signal XLXI_51_wishbone_slot_9_out_openSignal    : std_logic_vector (100 
          downto 0);
@@ -274,11 +276,11 @@ architecture BEHAVIORAL of Papilio_Pro is
              spi_clk          : out   std_logic; 
              spi_mosi         : out   std_logic; 
              spi_cs           : out   std_logic; 
-             wishbone_in      : in    std_logic_vector (100 downto 0); 
-             wishbone_out     : out   std_logic_vector (100 downto 0); 
              audio_data       : out   std_logic_vector (17 downto 0); 
              sample_available : out   std_logic; 
-             fx_ctrl          : out   std_logic_vector (16 downto 0));
+             fx_ctrl          : out   std_logic_vector (16 downto 0); 
+             wishbone_out     : out   std_logic_vector (100 downto 0); 
+             wishbone_in      : in    std_logic_vector (100 downto 0));
    end component;
    
    component MISC_zpuino_sa_splitter2
@@ -300,6 +302,11 @@ architecture BEHAVIORAL of Papilio_Pro is
              ctrl_in      : in    std_logic_vector (16 downto 0); 
              audio_out    : out   std_logic_vector (17 downto 0); 
              ctrl_out     : out   std_logic_vector (16 downto 0));
+   end component;
+   
+   component Wishbone_Empty_Slot
+      port ( wishbone_in  : in    std_logic_vector (100 downto 0); 
+             wishbone_out : out   std_logic_vector (100 downto 0));
    end component;
    
 begin
@@ -402,9 +409,8 @@ begin
             0)=>XLXI_51_wishbone_slot_video_in_openSignal(100 downto 0),
                 wishbone_slot_5_out(100 downto 
             0)=>XLXI_51_wishbone_slot_5_out_openSignal(100 downto 0),
-                wishbone_slot_6_out(100 downto 0)=>XLXN_584(100 downto 0),
-                wishbone_slot_8_out(100 downto 
-            0)=>XLXI_51_wishbone_slot_8_out_openSignal(100 downto 0),
+                wishbone_slot_6_out(100 downto 0)=>XLXN_602(100 downto 0),
+                wishbone_slot_8_out(100 downto 0)=>XLXN_599(100 downto 0),
                 wishbone_slot_9_out(100 downto 
             0)=>XLXI_51_wishbone_slot_9_out_openSignal(100 downto 0),
                 wishbone_slot_10_out(100 downto 
@@ -424,8 +430,8 @@ begin
                 gpio_bus_out(200 downto 0)=>XLXN_408(200 downto 0),
                 wishbone_slot_video_out=>open,
                 wishbone_slot_5_in=>open,
-                wishbone_slot_6_in(100 downto 0)=>XLXN_585(100 downto 0),
-                wishbone_slot_8_in=>open,
+                wishbone_slot_6_in(100 downto 0)=>XLXN_603(100 downto 0),
+                wishbone_slot_8_in(100 downto 0)=>XLXN_598(100 downto 0),
                 wishbone_slot_9_in=>open,
                 wishbone_slot_10_in=>open,
                 wishbone_slot_11_in=>open,
@@ -442,14 +448,14 @@ begin
    XLXI_53 : DSP_Wing
       port map (clk_96Mhz=>XLXN_588,
                 spi_miso=>WING_CH2,
-                wishbone_in(100 downto 0)=>XLXN_584(100 downto 0),
+                wishbone_in(100 downto 0)=>XLXN_603(100 downto 0),
                 audio_data(17 downto 0)=>XLXN_594(17 downto 0),
                 fx_ctrl(16 downto 0)=>XLXN_592(16 downto 0),
                 sample_available=>XLXN_590,
                 spi_clk=>WING_CH0,
                 spi_cs=>WING_CH3,
                 spi_mosi=>WING_CH1,
-                wishbone_out(100 downto 0)=>XLXN_585(100 downto 0));
+                wishbone_out(100 downto 0)=>XLXN_602(100 downto 0));
    
    XLXI_54 : MISC_zpuino_sa_splitter2
       port map (in1=>XLXN_538,
@@ -477,6 +483,10 @@ begin
                 sample_ready=>XLXN_590,
                 audio_out(17 downto 0)=>XLXN_595(17 downto 0),
                 ctrl_out=>open);
+   
+   XLXI_60 : Wishbone_Empty_Slot
+      port map (wishbone_in(100 downto 0)=>XLXN_598(100 downto 0),
+                wishbone_out(100 downto 0)=>XLXN_599(100 downto 0));
    
 end BEHAVIORAL;
 

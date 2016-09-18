@@ -31,7 +31,7 @@ unsigned long DSP_Wing::getSample18(){
 }*/
 void DSP_Wing::setFXCTRL(unsigned char fx,unsigned char param, unsigned char value){
   REGISTER(IO_SLOT(wishboneSlot),REG_FX_CTRL) = ((value & 0xff) << 9) | ( (param & 0xf) << 5 ) | ( (fx & 0xf) << 1) | 1;
-  //REGISTER(IO_SLOT(wishboneSlot),REG_FX_CTRL) = ((value & 0xff) << 9) | ( (param & 0xf) << 5 ) | ( (fx & 0xf) << 1) | 0;
+  REGISTER(IO_SLOT(wishboneSlot),REG_FX_CTRL) = ((value & 0xff) << 9) | ( (param & 0xf) << 5 ) | ( (fx & 0xf) << 1) | 0;
 }
 void DSP_Wing::setTremoloWidth(unsigned char pulseWidth){
   this->setFXCTRL(FX_TREMOLO,PARAM_TREMOLO_WIDTH,pulseWidth);

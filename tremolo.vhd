@@ -71,7 +71,10 @@ begin
 					-- The sampling operates at 96Khz which means 96000 samples = 1 second. 
 					-- multiply input value by 375 to allow user to set width between 0..96000; 256*375=96000
 					when CTRL_WIDTH =>
-						width <= resize( param_value * 375 ,width'length);
+						-- width <= resize( param_value * 375 ,width'length);
+						-- Let's try the something similar without using a multiplier
+						width(16 downto 9) <= param_value(7 downto 0);
+						width(8 downto 0) <= (others => '0');
 					when others => 
 						Null;
 				end case;

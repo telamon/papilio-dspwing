@@ -72,8 +72,6 @@
         <signal name="WING_CL1" />
         <signal name="XLXN_582(7:0)" />
         <signal name="XLXN_583(7:0)" />
-        <signal name="XLXN_584(100:0)" />
-        <signal name="XLXN_585(100:0)" />
         <signal name="XLXN_588" />
         <signal name="WING_CH0" />
         <signal name="WING_CH1" />
@@ -83,6 +81,10 @@
         <signal name="XLXN_592(16:0)" />
         <signal name="XLXN_594(17:0)" />
         <signal name="XLXN_595(17:0)" />
+        <signal name="XLXN_598(100:0)" />
+        <signal name="XLXN_599(100:0)" />
+        <signal name="XLXN_602(100:0)" />
+        <signal name="XLXN_603(100:0)" />
         <port polarity="BiDirectional" name="WING_AH0" />
         <port polarity="BiDirectional" name="WING_AH1" />
         <port polarity="BiDirectional" name="WING_AH2" />
@@ -297,7 +299,7 @@
             <line x2="0" y1="-144" y2="-144" x1="64" />
         </blockdef>
         <blockdef name="DSP_Wing">
-            <timestamp>2016-9-12T20:56:8</timestamp>
+            <timestamp>2016-9-18T21:13:20</timestamp>
             <rect width="432" x="64" y="-448" height="448" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
             <line x2="0" y1="-224" y2="-224" x1="64" />
@@ -447,10 +449,10 @@
             <blockpin signalname="ext_pins_inout(100:0)" name="ext_pins_inout(100:0)" />
             <blockpin name="wishbone_slot_5_out(100:0)" />
             <blockpin name="wishbone_slot_5_in(100:0)" />
-            <blockpin signalname="XLXN_585(100:0)" name="wishbone_slot_6_in(100:0)" />
-            <blockpin signalname="XLXN_584(100:0)" name="wishbone_slot_6_out(100:0)" />
-            <blockpin name="wishbone_slot_8_in(100:0)" />
-            <blockpin name="wishbone_slot_8_out(100:0)" />
+            <blockpin signalname="XLXN_603(100:0)" name="wishbone_slot_6_in(100:0)" />
+            <blockpin signalname="XLXN_602(100:0)" name="wishbone_slot_6_out(100:0)" />
+            <blockpin signalname="XLXN_598(100:0)" name="wishbone_slot_8_in(100:0)" />
+            <blockpin signalname="XLXN_599(100:0)" name="wishbone_slot_8_out(100:0)" />
             <blockpin name="wishbone_slot_9_in(100:0)" />
             <blockpin name="wishbone_slot_9_out(100:0)" />
             <blockpin name="wishbone_slot_10_in(100:0)" />
@@ -477,11 +479,11 @@
             <blockpin signalname="WING_CH0" name="spi_clk" />
             <blockpin signalname="WING_CH1" name="spi_mosi" />
             <blockpin signalname="WING_CH3" name="spi_cs" />
-            <blockpin signalname="XLXN_584(100:0)" name="wishbone_in(100:0)" />
-            <blockpin signalname="XLXN_585(100:0)" name="wishbone_out(100:0)" />
             <blockpin signalname="XLXN_594(17:0)" name="audio_data(17:0)" />
             <blockpin signalname="XLXN_590" name="sample_available" />
             <blockpin signalname="XLXN_592(16:0)" name="fx_ctrl(16:0)" />
+            <blockpin signalname="XLXN_602(100:0)" name="wishbone_out(100:0)" />
+            <blockpin signalname="XLXN_603(100:0)" name="wishbone_in(100:0)" />
         </block>
         <block symbolname="MISC_zpuino_sa_splitter2" name="XLXI_54">
             <blockpin signalname="XLXN_538" name="in1" />
@@ -642,7 +644,8 @@
         <iomarker fontsize="28" x="5200" y="3056" name="WING_CH7" orien="R0" />
         <branch name="XLXN_408(200:0)">
             <wire x2="4576" y1="1200" y2="1344" x1="4576" />
-            <wire x2="4608" y1="1344" y2="1344" x1="4576" />
+            <wire x2="4592" y1="1344" y2="1344" x1="4576" />
+            <wire x2="4608" y1="1344" y2="1344" x1="4592" />
             <wire x2="5296" y1="1200" y2="1200" x1="4576" />
             <wire x2="5296" y1="352" y2="352" x1="4704" />
             <wire x2="5296" y1="352" y2="1200" x1="5296" />
@@ -694,16 +697,17 @@
         </instance>
         <instance x="4640" y="3088" name="XLXI_38" orien="R0">
         </instance>
-        <instance x="336" y="752" name="XLXI_51" orien="R0">
-        </instance>
         <branch name="ext_pins_in(100:0)">
-            <wire x2="336" y1="96" y2="96" x1="304" />
+            <wire x2="320" y1="96" y2="96" x1="304" />
+            <wire x2="336" y1="96" y2="96" x1="320" />
         </branch>
         <branch name="ext_pins_out(100:0)">
-            <wire x2="336" y1="128" y2="128" x1="304" />
+            <wire x2="320" y1="128" y2="128" x1="304" />
+            <wire x2="336" y1="128" y2="128" x1="320" />
         </branch>
         <branch name="ext_pins_inout(100:0)">
-            <wire x2="336" y1="160" y2="160" x1="304" />
+            <wire x2="320" y1="160" y2="160" x1="304" />
+            <wire x2="336" y1="160" y2="160" x1="320" />
         </branch>
         <iomarker fontsize="28" x="304" y="96" name="ext_pins_in(100:0)" orien="R180" />
         <iomarker fontsize="28" x="304" y="128" name="ext_pins_out(100:0)" orien="R180" />
@@ -785,17 +789,12 @@
         </branch>
         <instance x="4352" y="3024" name="XLXI_57" orien="R0">
         </instance>
-        <branch name="XLXN_584(100:0)">
-            <wire x2="960" y1="816" y2="1520" x1="960" />
-        </branch>
-        <branch name="XLXN_585(100:0)">
-            <wire x2="944" y1="816" y2="1520" x1="944" />
-        </branch>
         <instance x="688" y="2016" name="XLXI_53" orien="R0">
         </instance>
         <branch name="XLXN_538">
+            <wire x2="64" y1="864" y2="1008" x1="64" />
+            <wire x2="64" y1="1008" y2="1024" x1="64" />
             <wire x2="4720" y1="864" y2="864" x1="64" />
-            <wire x2="64" y1="864" y2="1024" x1="64" />
             <wire x2="4720" y1="480" y2="480" x1="4704" />
             <wire x2="4720" y1="480" y2="864" x1="4720" />
         </branch>
@@ -807,36 +806,57 @@
             <wire x2="688" y1="1600" y2="1600" x1="464" />
         </branch>
         <branch name="WING_CH0">
-            <wire x2="1280" y1="1600" y2="1600" x1="1248" />
+            <wire x2="1264" y1="1600" y2="1600" x1="1248" />
+            <wire x2="1280" y1="1600" y2="1600" x1="1264" />
         </branch>
         <iomarker fontsize="28" x="1280" y="1600" name="WING_CH0" orien="R0" />
         <branch name="WING_CH1">
-            <wire x2="1280" y1="1664" y2="1664" x1="1248" />
+            <wire x2="1264" y1="1664" y2="1664" x1="1248" />
+            <wire x2="1280" y1="1664" y2="1664" x1="1264" />
         </branch>
         <iomarker fontsize="28" x="1280" y="1664" name="WING_CH1" orien="R0" />
         <branch name="WING_CH3">
-            <wire x2="1280" y1="1728" y2="1728" x1="1248" />
+            <wire x2="1264" y1="1728" y2="1728" x1="1248" />
+            <wire x2="1280" y1="1728" y2="1728" x1="1264" />
         </branch>
         <iomarker fontsize="28" x="1280" y="1728" name="WING_CH3" orien="R0" />
         <branch name="WING_CH2">
-            <wire x2="688" y1="1792" y2="1792" x1="656" />
+            <wire x2="672" y1="1792" y2="1792" x1="656" />
+            <wire x2="688" y1="1792" y2="1792" x1="672" />
         </branch>
         <iomarker fontsize="28" x="656" y="1792" name="WING_CH2" orien="R180" />
         <branch name="XLXN_590">
-            <wire x2="1632" y1="1952" y2="1952" x1="1248" />
+            <wire x2="1616" y1="1952" y2="1952" x1="1248" />
+            <wire x2="1632" y1="1952" y2="1952" x1="1616" />
         </branch>
         <branch name="XLXN_592(16:0)">
-            <wire x2="1632" y1="1904" y2="1904" x1="1248" />
+            <wire x2="1616" y1="1904" y2="1904" x1="1248" />
+            <wire x2="1632" y1="1904" y2="1904" x1="1616" />
         </branch>
         <instance x="1632" y="2032" name="XLXI_58" orien="R0">
         </instance>
         <branch name="XLXN_594(17:0)">
-            <wire x2="1632" y1="2000" y2="2000" x1="1248" />
+            <wire x2="1616" y1="2000" y2="2000" x1="1248" />
+            <wire x2="1632" y1="2000" y2="2000" x1="1616" />
         </branch>
         <branch name="XLXN_595(17:0)">
             <wire x2="2704" y1="2000" y2="2000" x1="2128" />
             <wire x2="2704" y1="1424" y2="2000" x1="2704" />
             <wire x2="3296" y1="1424" y2="1424" x1="2704" />
+        </branch>
+        <instance x="336" y="752" name="XLXI_51" orien="R0">
+        </instance>
+        <branch name="XLXN_598(100:0)">
+            <wire x2="1392" y1="816" y2="848" x1="1392" />
+        </branch>
+        <branch name="XLXN_599(100:0)">
+            <wire x2="1408" y1="816" y2="848" x1="1408" />
+        </branch>
+        <branch name="XLXN_602(100:0)">
+            <wire x2="960" y1="816" y2="1520" x1="960" />
+        </branch>
+        <branch name="XLXN_603(100:0)">
+            <wire x2="944" y1="816" y2="1520" x1="944" />
         </branch>
     </sheet>
 </drawing>
