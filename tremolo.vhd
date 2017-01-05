@@ -46,6 +46,8 @@ architecture Behavioral of tremolo is
 	
 	signal width : unsigned(31 downto 0) := to_unsigned(48000,32); -- hardcode 500ms for now.
 	signal counter : unsigned(31 downto 0);
+	signal depth: unsigned(7 downto 0) := to_unsigned(200, 8);
+	--signal tmp: unsigned(25 downto 0):= (others => '0');
 	signal state : std_logic := '1'; -- silence when low, passthrough when high.
 	signal enabled : std_logic :='0';
 	signal param_value: unsigned(7 downto 0) := (others => '0');
@@ -71,10 +73,12 @@ begin
 					-- The sampling operates at 96Khz which means 96000 samples = 1 second. 
 					-- multiply input value by 375 to allow user to set width between 0..96000; 256*375=96000
 					when CTRL_WIDTH =>
-						-- width <= resize( param_value * 375 ,width'length);
+						width <= resize( param_value * 375 ,width'length);
 						-- Let's try the something similar without using a multiplier
-						width(16 downto 9) <= param_value(7 downto 0);
-						width(8 downto 0) <= (others => '0');
+						--width(16 downto 9) <= param_value(7 downto 0);
+						--width(8 downto 0) <= (others => '0');
+					when CTRL_DEPTH =>
+						depth <= param_value;
 					when others => 
 						Null;
 				end case;
@@ -100,7 +104,10 @@ begin
 				if state = '1' then
 					audio_out <= audio_in;
 				else
-					audio_out <= (others => '0');
+					-- audio_out <= (others => '0');
+					--tmp <= shift_right(resize( unsigned(audio_in) * depth, 26 ),8);
+					--audio_out(17 downto 0) <= std_logic_vector( tmp(25 downto 8) );
+					audio_out(17 downto 0) <= std_logic_vector( resize( shift_right(unsigned(audio_in) * depth,8), 18 ));
 				end if;
 				
 			else -- bypass this effect when disabled, just pass the original input sample on to out.

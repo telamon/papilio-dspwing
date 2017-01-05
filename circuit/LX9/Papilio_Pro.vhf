@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 09/18/2016 23:15:09
+-- /___/   /\     Timestamp : 09/19/2016 17:57:23
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -304,11 +304,6 @@ architecture BEHAVIORAL of Papilio_Pro is
              ctrl_out     : out   std_logic_vector (16 downto 0));
    end component;
    
-   component Wishbone_Empty_Slot
-      port ( wishbone_in  : in    std_logic_vector (100 downto 0); 
-             wishbone_out : out   std_logic_vector (100 downto 0));
-   end component;
-   
 begin
    XLXI_23 : Wing_GPIO
       port map (wt_miso(7 downto 0)=>XLXN_327(7 downto 0),
@@ -483,10 +478,6 @@ begin
                 sample_ready=>XLXN_590,
                 audio_out(17 downto 0)=>XLXN_595(17 downto 0),
                 ctrl_out=>open);
-   
-   XLXI_60 : Wishbone_Empty_Slot
-      port map (wishbone_in(100 downto 0)=>XLXN_598(100 downto 0),
-                wishbone_out(100 downto 0)=>XLXN_599(100 downto 0));
    
 end BEHAVIORAL;
 

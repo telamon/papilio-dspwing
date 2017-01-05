@@ -36,6 +36,9 @@ void DSP_Wing::setFXCTRL(unsigned char fx,unsigned char param, unsigned char val
 void DSP_Wing::setTremoloWidth(unsigned char pulseWidth){
   this->setFXCTRL(FX_TREMOLO,PARAM_TREMOLO_WIDTH,pulseWidth);
 }
+void DSP_Wing::setTremoloDepth(unsigned char depth){
+  this->setFXCTRL(FX_TREMOLO,PARAM_TREMOLO_DEPTH,depth);
+}
 void DSP_Wing::enableFX(unsigned char fx,boolean enabled){
   this->setFXCTRL(fx,PARAM_ENABLED,enabled?1:0);
 }

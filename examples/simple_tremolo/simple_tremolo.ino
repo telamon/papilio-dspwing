@@ -7,8 +7,7 @@
   }
   unsigned char pw;
   
-
-  void loop(){
+  void serialExpriment(){
     
     // Wait for serial input.
     while(Serial.available() == 0);
@@ -29,6 +28,23 @@
       dsp.enableFX(FX_TREMOLO,false);    
     }
     delay(1000);
+  }
+
+  void loop(){
+    
+    Serial.println("Turning on");
+    dsp.enableFX(FX_TREMOLO,true);
+    dsp.setTremoloDepth(0xff);
+    for(int i=0;i<9;i++){
+      char w = (i*30)%0xff;
+      Serial.print("Setwidth: ");Serial.println(w,DEC);
+      dsp.setTremoloWidth(w);    
+
+      delay(3000*i);
+    }
+    dsp.enableFX(FX_TREMOLO,false);
+    Serial.println("Turning off");
+    delay(2000);
   }
   
   

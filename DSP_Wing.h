@@ -29,6 +29,7 @@ class DSP_Wing
     void setFXCTRL(unsigned char fx,unsigned char param, unsigned char value);
     void enableFX(unsigned char fx,boolean enabled);
     void setTremoloWidth(unsigned char pulseWidth);
+    void setTremoloDepth(unsigned char depth);
 
   private:
     int wishboneSlot;
